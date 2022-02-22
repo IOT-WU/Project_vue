@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Menu from '../views/Menu.vue'
 import Login from '../views/Login.vue'
+import Show from '../views/Show.vue'
 
 const routes = [
     {
@@ -12,7 +13,14 @@ const routes = [
     {
         path: '/Menu',
         name: 'Menu',
-        component: Menu
+        component: Menu,
+        children: [
+            {
+                path: '/Show',
+                name: 'Show',
+                component: Show
+            },
+        ]
     },
     {
         path: '/Login',

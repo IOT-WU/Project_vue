@@ -6,7 +6,7 @@
                 <el-menu :default-openeds="['1']">
                     <el-sub-menu index="1">
                         <template #title> 流程管理 </template>
-                        <el-menu-item index="1-1" @click="Goto('')"
+                        <el-menu-item index="1-1" @click="Goto('Show')"
                             >发起流程</el-menu-item
                         >
                         <el-menu-item index="1-2" @click="Goto('')"
