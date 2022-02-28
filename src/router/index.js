@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Menu from '../views/Menu.vue'
 import Login from '../views/Login.vue'
-import Show from '../views/Show.vue'
+import LaunchApplication from '../views/LaunchApplication.vue'
 
 const routes = [
     {
@@ -16,9 +16,10 @@ const routes = [
         component: Menu,
         children: [
             {
-                path: '/Show',
-                name: 'Show',
-                component: Show
+                //发起申请页面
+                path: '/LaunchApplication',
+                name: 'LaunchApplication',
+                component: LaunchApplication
             },
         ]
     },
