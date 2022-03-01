@@ -1622,12 +1622,12 @@
                                             >
                                                 <el-option
                                                     label="辞退"
-                                                    value="辞退"
+                                                    value="1"
                                                     >辞退</el-option
                                                 >
                                                 <el-option
                                                     label="离职"
-                                                    value="离职"
+                                                    value="2"
                                                     >离职</el-option
                                                 >
                                             </el-select>
@@ -1874,7 +1874,7 @@
                                     </td>
                                     <td width="225">
                                         <input
-                                            type="date"
+                                            type="datetime-local"
                                             v-model="leaveform.leave_Time"
                                             placeholder="选择日期"
                                             style="
@@ -1990,7 +1990,7 @@
                                     </td>
                                     <td width="225">
                                         <input
-                                            type="date"
+                                            type="datetime-local"
                                             v-model="leaveform.leave_StartDate"
                                             placeholder="选择日期"
                                             style="
@@ -2018,7 +2018,7 @@
                                     </td>
                                     <td width="225">
                                         <input
-                                            type="date"
+                                            type="datetime-local"
                                             @change="DateDiff"
                                             v-model="leaveform.leave_EndDate"
                                             placeholder="选择日期"
@@ -2836,12 +2836,15 @@ export default {
             dialogstaffVisible: false, //人力资源表单
             action: "提交", //申请分支名称
             //请假申请数据
-            leaveform: {
+            bpmLeave: {
                 action: "提交",
                 bpmUser: window.sessionStorage["account"],
                 bpmUserPass: window.sessionStorage["password"],
                 fullName: window.sessionStorage["account"],
                 processName: "leave",
+                leaveData: "",
+            },
+            leaveform: {
                 leave_Proposer: "",
                 leave_Demo: "",
                 leave_Time: "",
@@ -2854,29 +2857,35 @@ export default {
                 leave_Remark: "",
             },
             //离职申请数据
-            Departure: {
+            bpmDeparture: {
                 action: "提交",
                 bpmUser: window.sessionStorage["account"],
                 bpmUserPass: window.sessionStorage["password"],
                 fullName: window.sessionStorage["account"],
                 processName: "离职申请流程",
+                departureData: "",
+            },
+            Departure: {
                 departure_Applicant: "",
                 departure_Department: "",
                 departure_Time: "",
                 departure_Position: "",
                 departure_Entry: "",
                 departure_Data: "",
-                departure_Type: "",
+                departure_Type: 0,
                 departure_Why: "",
                 departure_Note: "",
             },
-            //人力资源数据
-            staff: {
+            bpmstaff: {
                 action: "提交",
                 bpmUser: window.sessionStorage["account"],
                 bpmUserPass: window.sessionStorage["password"],
                 fullName: window.sessionStorage["account"],
                 processName: "人力资源需求",
+                flnatte: "",
+            },
+            //人力资源数据
+            staff: {
                 staff_department: "", //申请部门
                 staff_time: "", //申请时间
                 staff_name: "", //申请名称
@@ -2937,13 +2946,13 @@ export default {
                 this.leaveform.leave_EndDate = "";
                 return;
             }
-            console.log(this.leaveform.leave_EndDate);
-            console.log(this.leaveform.leave_StartDate);
+            console.log(this.leaveform.leave_EndDate.slice(0, 10));
+            console.log(this.leaveform.leave_StartDate.slice(0, 10));
             //sDate1和sDate2是yyyy-MM-dd格式
             var aDate, oDate1, oDate2, iDays;
-            aDate = this.leaveform.leave_StartDate.split("-");
+            aDate = this.leaveform.leave_StartDate.slice(0, 10).split("-");
             oDate1 = new Date(aDate[1] + "-" + aDate[2] + "-" + aDate[0]); //转换为yyyy-MM-dd格式
-            aDate = this.leaveform.leave_EndDate.split("-");
+            aDate = this.leaveform.leave_EndDate.slice(0, 10).split("-");
             oDate2 = new Date(aDate[1] + "-" + aDate[2] + "-" + aDate[0]);
             iDays = Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24; //把相差的毫秒数转换为天数
             iDays = iDays.toFixed(0); //天数保留两位小数
@@ -2956,14 +2965,19 @@ export default {
         },
         //发起请假流程
         AddLeaveApply() {
-            console.log(this.leaveform);
+            this.bpmLeave.leaveData = JSON.stringify(this.leaveform);
             this.$axios({
                 url: this.baseUrl + "startleave",
                 method: "post",
-                data: this.leaveform,
+                data: this.bpmLeave,
             }).then((res) => {
-                this.dialogLeaveVisible = false;
                 console.log(res);
+                if (res.data == "") {
+                    this.$message.success("提交成功");
+                } else {
+                    this.$message.error("提交失败");
+                }
+                this.dialogLeaveVisible = false;
             });
         },
         //离职申请
@@ -2972,14 +2986,20 @@ export default {
         },
         //发起离职申请
         AddDeparture() {
+            this.bpmDeparture.departureData = JSON.stringify(this.Departure);
             console.log(this.Departure);
             this.$axios({
-                url: "http://localhost:7438/api/startDeparture",
+                url: this.baseUrl + "startDeparture",
                 method: "post",
-                data: this.Departure,
+                data: this.bpmDeparture,
             }).then((res) => {
                 console.log(res);
-                alert("提交成功");
+                if (res.data == "") {
+                    this.$message.success("提交成功");
+                } else {
+                    this.$message.error("提交失败");
+                }
+                this.dialogDepartureVisible = false;
             });
         },
         //人力资源申请
@@ -2988,17 +3008,19 @@ export default {
         },
         //发起人力资源申请
         AddstafflApply() {
+            this.bpmstaff.flnatte = JSON.stringify(this.staff);
             console.log(this.staff);
             this.$axios({
-                url: "http://localhost:7438/api/startResources",
+                url: this.baseUrl + "startResources",
                 method: "post",
-                data: this.staff,
+                data: this.bpmstaff,
             }).then((res) => {
                 if (res.data == "") {
-                    alert("添加成功");
+                    this.$message.success("提交成功");
                 } else {
-                    alert("添加失败");
+                    this.$message.error("提交失败");
                 }
+                this.dialogstaffVisible = false;
             });
         },
         handleRemove(file, fileList) {
