@@ -1,13 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Menu from '../views/Menu.vue'
-import Login from '../views/Login.vue'
-import LaunchApplication from '../views/LaunchApplication.vue'
-import Procurement from '../views/Procurement.vue'
-import Reception from '../views/Reception.vue'
-import MeetingRoomNew from '../views/MeetingRoomNew.vue'
-import ReservationMeetingRoom from '../views/ReservationMeetingRoom.vue'
-import ReservationProcurement from '../views/ReservationProcurement.vue'
+import Menu from '../views/Menu.vue'//菜单
+import Login from '../views/Login.vue'//登录
+import LeaveApply from '../views/LeaveApply.vue'//请假申请
+import EmployApply from '../views/EmployApply.vue'//录用申请
+import AnnualApply from '../views/AnnualApply.vue'//招聘人员申请
+import DepartureApply from '../views/DepartureApply.vue'//离职申请
+import stafflApply from '../views/stafflApply.vue'//人力资源申请
+
+import LaunchApplication from '../views/LaunchApplication.vue'//申请子菜单
+import ProcessedApplication from '../views/ProcessedApplication.vue'//已处理申请
+import PendingApplication from '../views/PendingApplication.vue'//待处理申请
+import EndApplication from '../views/EndApplication.vue'//已完成申请
+import MyApplication from '../views/MyApplication.vue'//我的申请
+import AssetsApply from '../views/AssetsApply.vue'//资产申请
 
 const routes = [
     {
@@ -16,29 +22,29 @@ const routes = [
         component: Home
     },
     {
-        path: '/ReservationProcurement',
-        name: 'ReservationProcurement',
-        component: ReservationProcurement
+        path: '/LeaveApply',
+        name: 'LeaveApply',
+        component: LeaveApply
     },
     {
-        path: '/ReservationMeetingRoom',
-        name: 'ReservationMeetingRoom',
-        component: ReservationMeetingRoom
+        path: '/EmployApply',
+        name: 'EmployApply',
+        component: EmployApply
     },
     {
-        path: '/Reception',
-        name: 'Reception',
-        component: Reception
+        path: '/AnnualApply',
+        name: 'AnnualApply',
+        component: AnnualApply
     },
     {
-        path: '/MeetingRoomNew',
-        name: 'MeetingRoomNew',
-        component: MeetingRoomNew
+        path: '/DepartureApply',
+        name: 'DepartureApply',
+        component: DepartureApply
     },
     {
-        path: '/Procurement',
-        name: 'Procurement',
-        component: Procurement
+        path: '/stafflApply',
+        name: 'stafflApply',
+        component: stafflApply
     },
     {
         path: '/Menu',
@@ -50,6 +56,36 @@ const routes = [
                 path: '/LaunchApplication',
                 name: 'LaunchApplication',
                 component: LaunchApplication
+            },
+            {
+                //资产申请页面
+                path: '/AssetsApply',
+                name: 'AssetsApply',
+                component: AssetsApply
+            },
+            {
+                //已处理申请
+                path: '/ProcessedApplication',
+                name: 'ProcessedApplication',
+                component: ProcessedApplication
+            },
+            {
+                //待处理申请
+                path: '/PendingApplication',
+                name: 'PendingApplication',
+                component: PendingApplication
+            },
+            {
+                //已完成申请
+                path: '/EndApplication',
+                name: 'EndApplication',
+                component: EndApplication
+            },
+            {
+                //我的申请
+                path: '/MyApplication',
+                name: 'MyApplication',
+                component: MyApplication
             },
         ]
     },
@@ -73,20 +109,20 @@ const router = createRouter({
     routes
 })
 
-//路由导航守卫
-router.beforeEach((to, from, next) => {
-    if (to.path == '/login') {
-        next();
-    } else {
-        let token = window.sessionStorage["token"];
-        //如果token为空就跳转到Login界面
-        if (token == null || token == '') {
-            next('/login');
-            alert("请先登录");
-        } else {
-            next();
-        }
-    }
-})
+// //路由导航守卫
+// router.beforeEach((to, from, next) => {
+//     if (to.path == '/login') {
+//         next();
+//     } else {
+//         let token = window.sessionStorage["token"];
+//         //如果token为空就跳转到Login界面
+//         if (token == null || token == '') {
+//             next('/login');
+//             alert("请先登录");
+//         } else {
+//             next();
+//         }
+//     }
+// })
 
 export default router
