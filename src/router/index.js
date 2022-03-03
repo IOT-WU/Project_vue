@@ -2,7 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Menu from '../views/Menu.vue'
 import Login from '../views/Login.vue'
-import Show from '../views/Show.vue'
+import LaunchApplication from '../views/LaunchApplication.vue'
+import Procurement from '../views/Procurement.vue'
+import Reception from '../views/Reception.vue'
+import MeetingRoomNew from '../views/MeetingRoomNew.vue'
+import ReservationMeetingRoom from '../views/ReservationMeetingRoom.vue'
+import ReservationProcurement from '../views/ReservationProcurement.vue'
 
 const routes = [
     {
@@ -11,14 +16,40 @@ const routes = [
         component: Home
     },
     {
+        path: '/ReservationProcurement',
+        name: 'ReservationProcurement',
+        component: ReservationProcurement
+    },
+    {
+        path: '/ReservationMeetingRoom',
+        name: 'ReservationMeetingRoom',
+        component: ReservationMeetingRoom
+    },
+    {
+        path: '/Reception',
+        name: 'Reception',
+        component: Reception
+    },
+    {
+        path: '/MeetingRoomNew',
+        name: 'MeetingRoomNew',
+        component: MeetingRoomNew
+    },
+    {
+        path: '/Procurement',
+        name: 'Procurement',
+        component: Procurement
+    },
+    {
         path: '/Menu',
         name: 'Menu',
         component: Menu,
         children: [
             {
-                path: '/Show',
-                name: 'Show',
-                component: Show
+                //发起申请页面
+                path: '/LaunchApplication',
+                name: 'LaunchApplication',
+                component: LaunchApplication
             },
         ]
     },
