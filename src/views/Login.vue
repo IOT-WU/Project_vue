@@ -71,7 +71,7 @@
                             bottom: 15px;
                             left: 30px;
                         "
-                        >Password：The default password is 123</label
+                        >Password：The default password is ' '</label
                     ><br />
                 </div>
                 <div style="margin-top: 5px; margin-bottom: 15px">
@@ -165,7 +165,7 @@ export default {
                 data: this.UserInfoData,
             }).then((res) => {
                 if (res.data == 0) {
-                    window.localStorage.removeItem("token");
+                    window.sessionStorage.removeItem("token");
                     this.$message.warning("登录失败");
                 } else {
                     //存储当前登录人的账号密码
