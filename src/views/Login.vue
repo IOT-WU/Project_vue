@@ -71,7 +71,7 @@
                             bottom: 15px;
                             left: 30px;
                         "
-                        >Password：The default password is 123</label
+                        >Password：The default password is ' '</label
                     ><br />
                 </div>
                 <div style="margin-top: 5px; margin-bottom: 15px">

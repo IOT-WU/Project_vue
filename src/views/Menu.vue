@@ -36,6 +36,7 @@
                         active-text-color="#ffd04b"
                         background-color="#545c64"
                         text-color="#fff"
+                        :default-openeds="['1-1']"
                     >
                         <el-sub-menu index="1">
                             <template #title> 人事行政管理 </template>
@@ -56,22 +57,27 @@
                             <el-menu-item index="1-5" @click="Goto('')"
                                 >已完成申请</el-menu-item
                             >
+                            <el-menu-item index="1-6" @click="Goto('RequestApplication')"
+                                >审批申请</el-menu-item
+                            >
                         </el-sub-menu>
                         <el-sub-menu index="2">
                             <template #title> 公司资产管理 </template>
-                            <el-sub-menu index="2-1">
-                                <template #title> 菜单管理 </template>
-                                <el-menu-item index="2-1-1" @click="Goto('')"
-                                    >菜单权限管理</el-menu-item
-                                >
-                                <el-menu-item index="2-1-2" @click="Goto('')"
-                                    >占位符</el-menu-item
-                                >
-                            </el-sub-menu>
+                            <el-menu-item
+                                index="2-1"
+                                @click="Goto('AssetsApply')"
+                                >资产申请</el-menu-item
+                            >
+                            <el-menu-item index="2-2" @click="Goto('AssetsaddApply')"
+                                >资产添加</el-menu-item
+                            >
                         </el-sub-menu>
                         <el-sub-menu index="3">
                             <template #title> 其他管理 </template>
-                            <el-menu-item index="3-1" @click="Goto('')"
+                            <el-menu-item index="3-1" @click="Goto('Announcementmanagement')"
+                                >公告管理</el-menu-item
+                            >
+                            <el-menu-item index="3-2" @click="Goto('')"
                                 >年假管理</el-menu-item
                             >
                             <el-menu-item index="3-2" @click="Goto('')"
@@ -103,6 +109,7 @@ export default {
         };
     },
     created() {
+        this.$router.push("LaunchApplication");
         console.log(window.sessionStorage["token"]);
     },
     methods: {
