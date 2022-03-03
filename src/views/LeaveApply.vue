@@ -5,13 +5,13 @@
             ref="leaveformRef"
             :model="leaveform"
             bordercolor="#E4E7ED"
-            width="900px"
+            width="950px"
             cellpadding="5"
             cellspacing="0"
         >
             <tr>
                 <td colspan="4">
-                    <h2 style="text-align: center">请假申请表</h2>
+                    <h2 style="text-align: center">请假审批表</h2>
                 </td>
             </tr>
             <tr>
@@ -164,25 +164,6 @@
                         >
                             提交
                         </button>
-                        <button type="info" style="float: left">
-                            存为草稿
-                        </button>
-                        <button type="info" style="float: left">
-                            存为范本
-                        </button>
-                        <button type="info" style="float: left">
-                            启用阅示
-                        </button>
-                    </div>
-                    <div style="height: 21px">
-                        <button type="info" style="float: left">序号</button>
-                        <button type="info" style="float: left">
-                            处理步骤
-                        </button>
-                        <button type="info" style="float: left">签名</button>
-                        <button type="info" style="float: left">操作</button>
-                        <button type="info" style="float: left">日期</button>
-                        <button type="info" style="float: left">备注</button>
                     </div>
                 </td>
             </tr>
@@ -222,6 +203,22 @@ export default {
     },
     mounted() {
         this.GetLeaveType();
+        this.leaveform = {
+            leave_Proposer: "",
+            leave_Demo: "",
+            leave_Time: "",
+            leave_LeaveType: "",
+            leave_StartDate: "",
+            leave_EndDate: "",
+            leave_Day: 0,
+            leave_Reason: "",
+            leave_AffixName: "",
+            leave_Remark: "",
+        };
+        if (window.sessionStorage["taskId"] != "") {
+            this.findLeave(window.sessionStorage["taskId"]);
+            window.sessionStorage.removeItem("taskId");
+        }
     },
     methods: {
         //获取请假类型
@@ -270,6 +267,16 @@ export default {
                 } else {
                     this.$message.error("提交失败");
                 }
+            });
+        },
+        //请假申请反填
+        findLeave(id) {
+            this.$axios({
+                url: this.baseUrl + "findleave?id=" + id,
+                method: "get",
+            }).then((res) => {
+                console.log(res.data);
+                this.leaveform = res.data;
             });
         },
         //-----

@@ -290,6 +290,16 @@ export default {
                 this.dialogDepartureVisible = false;
             });
         },
+        //离职申请反填
+        findDeparture(id) {
+            this.$axios({
+                url: this.baseUrl + "finddeparture?id=" + id,
+                method: "get",
+            }).then((res) => {
+                console.log(res.data);
+                this.Departure = res.data;
+            });
+        },
     },
 };
 </script>

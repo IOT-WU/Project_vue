@@ -36,7 +36,7 @@
                         active-text-color="#ffd04b"
                         background-color="#545c64"
                         text-color="#fff"
-                        :default-openeds="['1-1']"
+                        :default-openeds="['1']"
                     >
                         <el-sub-menu index="1">
                             <template #title> 人事行政管理 </template>
@@ -45,16 +45,20 @@
                                 @click="Goto('LaunchApplication')"
                                 >发起申请</el-menu-item
                             >
-                            <el-menu-item index="1-2" @click="Goto('')"
+                            <el-menu-item
+                                index="1-2"
+                                @click="Goto('PendingApplication')"
                                 >待处理申请</el-menu-item
                             >
-                            <el-menu-item index="1-3" @click="Goto('')"
+                            <el-menu-item
+                                index="1-3"
+                                @click="Goto('ProcessedApplication')"
                                 >已处理申请</el-menu-item
                             >
-                            <el-menu-item index="1-4" @click="Goto('')"
+                            <el-menu-item index="1-4" @click="Goto('MyApplication')"
                                 >我的申请</el-menu-item
                             >
-                            <el-menu-item index="1-5" @click="Goto('')"
+                            <el-menu-item index="1-5" @click="Goto('EndApplication')"
                                 >已完成申请</el-menu-item
                             >
                             <el-menu-item index="1-6" @click="Goto('RequestApplication')"

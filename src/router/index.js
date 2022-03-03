@@ -39,19 +39,9 @@ const routes = [
         component: LeaveApply
     },
     {
-        path: '/LeaveApproval',
-        name: 'LeaveApproval',
-        component: LeaveApproval
-    },
-    {
         path: '/EmployApply',
         name: 'EmployApply',
         component: EmployApply
-    },
-    {
-        path: '/EmployApprova',
-        name: 'EmployApprova',
-        component: EmployApprova
     },
     {
         path: '/AnnualApply',
@@ -59,19 +49,9 @@ const routes = [
         component: AnnualApply
     },
     {
-        path: '/AnnualApprova',
-        name: 'AnnualApprova',
-        component: AnnualApprova
-    },
-    {
         path: '/DepartureApply',
         name: 'DepartureApply',
         component: DepartureApply
-    },
-    {
-        path: '/DepartureApprova',
-        name: 'DepartureApprova',
-        component: DepartureApprova
     },
     {
         path: '/stafflApply',
@@ -138,12 +118,6 @@ const routes = [
                 path: '/LaunchApplication',
                 name: 'LaunchApplication',
                 component: LaunchApplication
-            },
-            {
-                //发起申请页面
-                path: '/RequestApplication',
-                name: 'RequestApplication',
-                component: RequestApplication
             },
             {
                 //资产申请页面

@@ -13,10 +13,7 @@
                         >人力资源申请</el-button
                     >
                     <!-- 人力资源申请表单 -->
-                    <el-dialog
-                        v-model="dialogstaffVisible"
-                        width="1000px"
-                    >
+                    <el-dialog v-model="dialogstaffVisible" width="1000px">
                         <iframe
                             src="http://localhost:8080/stafflApply"
                             width="950px"
@@ -56,7 +53,11 @@
                         >离职申请</el-button
                     >
                     <!-- 离职申请表单 -->
-                    <el-dialog v-model="dialogDepartureVisible" width="1000px">
+                    <el-dialog
+                        title="离职申请"
+                        v-model="dialogDepartureVisible"
+                        width="1000px"
+                    >
                         <iframe
                             src="http://localhost:8080/DepartureApply"
                             width="950px"
@@ -78,7 +79,7 @@
                     <el-dialog
                         title="请假申请"
                         v-model="dialogLeaveVisible"
-                        width="950px"
+                        width="1000px"
                     >
                         <iframe
                             src="http://localhost:8080/LeaveApply"
@@ -106,7 +107,7 @@
                         <iframe
                             src="http://localhost:8080/EmployApply"
                             width="950px"
-                            height="450px"
+                            height="570px"
                             frameborder="0"
                         ></iframe>
                     </el-dialog>
