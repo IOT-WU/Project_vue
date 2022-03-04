@@ -3,29 +3,31 @@ import Home from '../views/Home.vue'
 import Menu from '../views/Menu.vue'//菜单
 import Login from '../views/Login.vue'//登录
 import LeaveApply from '../views/LeaveApply.vue'//请假申请
-import LeaveApproval from '../views/LeaveApproval.vue'//请假审批
 import EmployApply from '../views/EmployApply.vue'//录用申请
-import EmployApprova from '../views/EmployApprova.vue'//录用审批
 import AnnualApply from '../views/AnnualApply.vue'//招聘人员申请
 import DepartureApply from '../views/DepartureApply.vue'//离职申请
-import DepartureApprova from '../views/DepartureApprova.vue'//离职审批
-import AnnualApprova from '../views/AnnualApprova.vue'//招聘人员审批
 import stafflApply from '../views/stafflApply.vue'//人力资源申请
-import stafflApprova from '../views/stafflApprova.vue'//人力资源审批
 import LaunchApplication from '../views/LaunchApplication.vue'//申请子菜单
-import RequestApplication from '../views/RequestApplication.vue'//审批子菜单
 import chapterApply from '../views/chapterApply.vue'//用章申请
-import chapterApplyova from '../views/chapterApplyova.vue'//用章审批
 import PrintsApply from '../views/PrintsApply.vue'//刻章申请
-import PrintsApplyova from '../views/PrintsApplyova.vue'//刻章审批
 import AnnouncementApply from '../views/AnnouncementApply.vue'//公告基本信息
-import FileApply from '../views/FileApply.vue'//刻章审批
+import FileApply from '../views/FileApply.vue'//文件管理表
 import TransferApply from '../views/TransferApply.vue'  //离职交接表
 import Announcementmanagement from '../views/Announcementmanagement.vue'//公告管理页面
 import EmployeeturnoverApply from '../views/EmployeeturnoverApply.vue'  //员工离职面谈表
 import AssetsaddApply from '../views/AssetsaddApply.vue'  //资产添加页面
 import AssetsApply from '../views/AssetsApply.vue'//资产申请页面
 import carapplicationApply from '../views/carapplicationApply.vue'//用车申请
+import EndApplication from '../views/EndApplication.vue'//已完成申请
+import MeetingRoomNew from '../views/MeetingRoomNew.vue'//会议室新增
+import MyApplication from '../views/MyApplication.vue'//我的申请
+import PendingApplication from '../views/PendingApplication.vue'//待处理申请
+import ProcessedApplication from '../views/ProcessedApplication.vue'//已处理申请
+import Reception from '../views/Reception.vue'//接待申请
+import ReservationMeetingRoom from '../views/ReservationMeetingRoom.vue'//会议室预定
+import ReservationProcurement from '../views/ReservationProcurement.vue'//日常用品管理表单(以列表的形式展示)
+import Procurement from '../views/Procurement.vue'//日常用品采购清单
+import Maintenancemanagement from '../views/Maintenancemanagement.vue'//维护管理页面
 
 const routes = [
     {
@@ -58,30 +60,16 @@ const routes = [
         name: 'stafflApply',
         component: stafflApply
     },
-    {
-        path: '/stafflApprova',
-        name: 'stafflApprova',
-        component: stafflApprova
-    },
+
     {
         path: '/chapterApply',
         name: 'chapterApply',
         component: chapterApply
     },
     {
-        path: '/chapterApplyova',
-        name: 'chapterApplyova',
-        component: chapterApplyova
-    },
-    {
         path: '/PrintsApply',
         name: 'PrintsApply',
         component: PrintsApply
-    },
-    {
-        path: '/PrintsApplyova',
-        name: 'PrintsApplyova',
-        component: PrintsApplyova
     },
     {
         path: '/AnnouncementApply',
@@ -108,6 +96,33 @@ const routes = [
         name: 'carapplicationApply',
         component: carapplicationApply
     },
+    {
+        path: '/MeetingRoomNew',
+        name: 'MeetingRoomNew',
+        component: MeetingRoomNew
+    },
+    {
+        path: '/Reception',
+        name: 'Reception',
+        component: Reception
+    },
+    {
+        path: '/ReservationMeetingRoom',
+        name: 'ReservationMeetingRoom',
+        component: ReservationMeetingRoom
+    },
+    {
+        path: '/ReservationProcurement',
+        name: 'ReservationProcurement',
+        component: ReservationProcurement
+    },
+    {
+        path: '/Procurement',
+        name: 'Procurement',
+        component: Procurement
+    },
+    
+    
     {
         path: '/Menu',
         name: 'Menu',
@@ -136,6 +151,36 @@ const routes = [
                 path: '/AssetsaddApply',
                 name: 'AssetsaddApply',
                 component: AssetsaddApply
+            },
+            {
+                //待处理申请
+                path: '/PendingApplication',
+                name: 'PendingApplication',
+                component: PendingApplication
+            },
+            {
+                //我的申请
+                path: '/MyApplication',
+                name: 'MyApplication',
+                component: MyApplication
+            },
+            {
+                //已完成申请
+                path: '/EndApplication',
+                name: 'EndApplication',
+                component: EndApplication
+            },
+            {
+                //已处理申请
+                path: '/ProcessedApplication',
+                name: 'ProcessedApplication',
+                component: ProcessedApplication
+            },
+            {
+                //维护管理
+                path: '/Maintenancemanagement',
+                name: 'Maintenancemanagement',
+                component: Maintenancemanagement
             },
         ]
     },

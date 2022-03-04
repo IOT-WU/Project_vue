@@ -1,7 +1,6 @@
 <template>
     <div class=".BodyDiv">
         <div align="center">
-
             <table border="1px" bordercolor="#E4E7ED" width="900xp" cellpadding="5" cellspacing="0"
                 :model="annual_instal">
                 <tr>

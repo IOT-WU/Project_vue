@@ -84,7 +84,7 @@
                             <el-menu-item index="3-2" @click="Goto('')"
                                 >年假管理</el-menu-item
                             >
-                            <el-menu-item index="3-2" @click="Goto('')"
+                            <el-menu-item index="3-3" @click="Goto('Maintenancemanagement')"
                                 >维护管理</el-menu-item
                             >
                         </el-sub-menu>
