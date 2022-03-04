@@ -161,16 +161,17 @@
                     </el-dialog>
                 </div>
             </el-collapse-item>
-
         </el-collapse>
     </div>
 </template>
 
 <script>
 import { Edit } from "@element-plus/icons-vue";
+import { Plus } from "@element-plus/icons-vue";
 export default {
     components: {
         Edit,
+        Plus,
     },
     data() {
         return {
@@ -180,11 +181,13 @@ export default {
             dialogDepartureVisible: false, //离职表单
             dialogAnnualVisible: false, //招聘表单
             dialogstaffVisible: false, //人力资源表单
-            dialogTransferVisible:false, //离职交接表单
-            dialogexitVisible:false //员工离职面谈表单
+            dialogTransferVisible: false, //离职交接表单
+            dialogexitVisible: false, //员工离职面谈表单
         };
     },
     mounted() {},
-    methods: {},
+    methods: {
+        //-----------
+    },
 };
 </script>

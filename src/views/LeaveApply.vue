@@ -173,6 +173,7 @@
 
 <script>
 export default {
+    inject: ["reload"],
     data() {
         return {
             baseUrl: "http://localhost:7438/api/",
@@ -202,7 +203,6 @@ export default {
         };
     },
     mounted() {
-        this.GetLeaveType();
         this.leaveform = {
             leave_Proposer: "",
             leave_Demo: "",
@@ -215,6 +215,7 @@ export default {
             leave_AffixName: "",
             leave_Remark: "",
         };
+        this.GetLeaveType();
         if (window.sessionStorage["taskId"] != "") {
             this.findLeave(window.sessionStorage["taskId"]);
             window.sessionStorage.removeItem("taskId");
@@ -255,6 +256,7 @@ export default {
         },
         //发起请假流程
         AddLeaveApply() {
+            console.log(this.leaveform);
             this.bpmLeave.leaveData = JSON.stringify(this.leaveform);
             this.$axios({
                 url: this.baseUrl + "startleave",
@@ -264,6 +266,7 @@ export default {
                 console.log(res);
                 if (res.data == "") {
                     this.$message.success("提交成功");
+                    this.reload();
                 } else {
                     this.$message.error("提交失败");
                 }
