@@ -8,6 +8,9 @@ import AnnualApply from '../views/AnnualApply.vue'//招聘人员申请
 import DepartureApply from '../views/DepartureApply.vue'//离职申请
 import stafflApply from '../views/stafflApply.vue'//人力资源申请
 import Insurance from '../views/Insurance.vue'//车辆保险
+import repair from '../views/repair.vue'//车辆保养
+import maintain from '../views/maintain.vue'//车辆维修
+import Violation from '../views/Violation.vue'//车辆违章
 
 //菜单
 import LaunchApplication from '../views/LaunchApplication.vue'//申请子菜单
@@ -44,6 +47,21 @@ const routes = [
         path: '/LeaveApply',
         name: 'LeaveApply',
         component: LeaveApply
+    },
+    {
+        path: '/Violation',
+        name: 'Violation',
+        component: Violation
+    },
+    {
+        path: '/repair',
+        name: 'repair',
+        component: repair
+    },
+    {
+        path: '/maintain',
+        name: 'maintain',
+        component: maintain
     },
     {
         path: '/Insurance',

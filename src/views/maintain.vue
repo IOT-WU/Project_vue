@@ -11,7 +11,7 @@
       >
         <tr>
           <td colspan="4">
-            <h2 style="text-align: center">车辆保险记录表</h2>
+            <h2 style="text-align: center">车辆保养记录表</h2>
           </td>
         </tr>
         <tr>
@@ -24,16 +24,16 @@
             经办人
           </td>
           <td width="225">
-            <input type="text" v-model="staff.car_Handler" />
+            <input type="text" v-model="staff.vehicle_Handler" />
           </td>
           <td align="left" width="225" style="background-color: #f6f5f4">
-            制表时间
+            保养日期
           </td>
           <td width="225">
             <el-date-picker
               type="date"
               placeholder="选择日期"
-              v-model="staff.car_Tabulation"
+              v-model="staff.vehicle_datime"
               style="width: 100%"
             >
             </el-date-picker>
@@ -41,98 +41,85 @@
         </tr>
         <tr>
           <td align="left" width="225" style="background-color: #f6f5f4">
-            车型
+           保养原因
           </td>
           <td width="225">
-            <input type="text" v-model="staff.car_Model" />
+            <input type="text" v-model="staff.vehicle_reason" />
           </td>
+        </tr>
+         <tr>
           <td align="left" width="225" style="background-color: #f6f5f4">
-            车牌号
+           保养项目
           </td>
           <td width="225">
-            <input type="text" v-model="staff.car_number" />
+            <input type="text" v-model="staff.vehicle_project" />
           </td>
         </tr>
         <tr>
           <td align="left" width="225" style="background-color: #f6f5f4">
-            购买日期
+            保养单位
           </td>
           <td width="225">
-            <el-date-picker
-              type="date"
-              placeholder="选择日期"
-              v-model="staff.car_purchase"
-              style="width: 100%"
-            >
-            </el-date-picker>
+            <input type="text" v-model="staff.vehicle_Company" />
           </td>
           <td align="left" width="225" style="background-color: #f6f5f4">
-            座位数
+            保养费用
           </td>
           <td width="225">
-            <input type="text" v-model="staff.car_seat" />
+            <input type="text" v-model="staff.vehicle_cost" />
           </td>
         </tr>
         <tr>
-          <td align="left" width="225" style="background-color: #f6f5f4">
-            保险金额
-          </td>
-          <td width="225">
-            <input type="text" v-model="staff.car_money" />
-          </td>
-          <td align="left" width="225" style="background-color: #f6f5f4">
-            乘客险
-          </td>
-          <td width="225">
-            <input type="text" v-model="staff.car_passenger" />
-          </td>
-        </tr>
-        <tr>
-            <td align="left" width="225" style="background-color: #f6f5f4">
-            保险项目
-          </td>
-          <td width="225">
-            <input type="text" v-model="staff.car_project" />
-          </td>
-            <td align="left" width="225" style="background-color: #f6f5f4">
-            截至保险日期
-          </td>
-          <td width="225">
-            <el-date-picker
-              type="date"
-              placeholder="选择日期"
-              v-model="staff.car_Insurance"
-              style="width: 100%"
-            >
-            </el-date-picker>
-          </td>
-        </tr>
-          <tr>
-               <td align="left" width="225" style="background-color: #f6f5f4">
-            保险开始日期
-          </td>
-          <td width="225">
-            <el-date-picker
-              type="date"
-              placeholder="选择日期"
-              v-model="staff.car_strat"
-              style="width: 100%"
-            >
-            </el-date-picker>
-          </td>
            <td align="left" width="225" style="background-color: #f6f5f4">
-            保险结束日期
+            保养当时公里数
           </td>
           <td width="225">
-            <el-date-picker
-              type="date"
-              placeholder="选择日期"
-              v-model="staff.car_end"
-              style="width: 100%"
-            >
-            </el-date-picker>
+            <input type="text" v-model="staff.vehicle_Kilometers" />
           </td>
         </tr>
+      </table>
+      <div style="width: 900px" align="center">
+        <div
+          style="
+            font-family: Arial;
+            font-weight: 700;
+            text-align: left;
+            line-height: 20px;
+          "
+        >
+          备注
+        </div>
+      </div>
+      <table
+        style="
+          border-top: medium none;
+          border-right: medium none;
+          border-bottom: medium none;
+          border-left: medium none;
+        "
+        cellspacing="0"
+        cellpadding="0"
+        width="900px"
+        border="1"
+        :model="staff"
+      >
+        <tbody>
+          <tr>
+            <td width="900px">
+              <textarea
+                ID="XCommentsTextBox2"
+                CssClass="printer"
+                runat="server"
+                BorderColor="#DCDCDC"
+                BorderWidth="1"
+                Width="900px"
+                Rows="3"
+                TextMode="MultiLine"
+                v-model="staff.vehicle_remarks"
+              ></textarea>
+            </td>
+          </tr>
+        </tbody>
       </table>
       <div style="width: 900px" align="center">
         <div align="left">
@@ -152,18 +139,14 @@ export default {
     
       //人力资源数据
       staff: {
-       car_Handler: "", //经办人
-                car_Tabulation: "", //制表时间
-                car_Model: "", //车型
-                car_number: "", //车牌号
-                car_purchase: "", //购买日期
-                car_seat: "0", //座位数
-                car_money: "", //保险金额
-                car_passenger: "", //乘客险
-                car_project: "", //保险项目
-                car_Insurance:"",//截止保险日期
-                car_strat:"",//保险开始日期
-                car_end:""//保险结束日期
+       vehicle_Handler: "", //经办人
+                vehicle_datime: "", //保养日期
+                vehicle_reason: "", //保养原因
+                vehicle_project: "", //保养项目
+                vehicle_Company: "", //保养单位
+                vehicle_cost: "", //保养费用
+                vehicle_Kilometers: "", //保养当时公里数
+                vehicle_remarks: "", //备注
       },
     };
   },
@@ -176,7 +159,7 @@ export default {
     //发起人力资源申请
     AddstafflApply() {
       this.$axios({
-        url: this.baseUrl + "AddermInsurance",
+        url: this.baseUrl + "Addermaintain",
         method: "post",
         data: this.staff,
       }).then((res) => {

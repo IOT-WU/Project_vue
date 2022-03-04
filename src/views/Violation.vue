@@ -11,7 +11,7 @@
       >
         <tr>
           <td colspan="4">
-            <h2 style="text-align: center">车辆保险记录表</h2>
+            <h2 style="text-align: center">车辆违章记录表</h2>
           </td>
         </tr>
         <tr>
@@ -24,115 +24,120 @@
             经办人
           </td>
           <td width="225">
-            <input type="text" v-model="staff.car_Handler" />
+            <input type="text" v-model="staff.handler" />
           </td>
           <td align="left" width="225" style="background-color: #f6f5f4">
-            制表时间
+            处理日期
           </td>
           <td width="225">
             <el-date-picker
               type="date"
               placeholder="选择日期"
-              v-model="staff.car_Tabulation"
+              v-model="staff.time"
               style="width: 100%"
             >
             </el-date-picker>
-          </td>
-        </tr>
-        <tr>
-          <td align="left" width="225" style="background-color: #f6f5f4">
-            车型
-          </td>
-          <td width="225">
-            <input type="text" v-model="staff.car_Model" />
-          </td>
-          <td align="left" width="225" style="background-color: #f6f5f4">
-            车牌号
-          </td>
-          <td width="225">
-            <input type="text" v-model="staff.car_number" />
-          </td>
-        </tr>
-        <tr>
-          <td align="left" width="225" style="background-color: #f6f5f4">
-            购买日期
-          </td>
-          <td width="225">
-            <el-date-picker
-              type="date"
-              placeholder="选择日期"
-              v-model="staff.car_purchase"
-              style="width: 100%"
-            >
-            </el-date-picker>
-          </td>
-          <td align="left" width="225" style="background-color: #f6f5f4">
-            座位数
-          </td>
-          <td width="225">
-            <input type="text" v-model="staff.car_seat" />
-          </td>
-        </tr>
-        <tr>
-          <td align="left" width="225" style="background-color: #f6f5f4">
-            保险金额
-          </td>
-          <td width="225">
-            <input type="text" v-model="staff.car_money" />
-          </td>
-          <td align="left" width="225" style="background-color: #f6f5f4">
-            乘客险
-          </td>
-          <td width="225">
-            <input type="text" v-model="staff.car_passenger" />
           </td>
         </tr>
         <tr>
             <td align="left" width="225" style="background-color: #f6f5f4">
-            保险项目
-          </td>
-          <td width="225">
-            <input type="text" v-model="staff.car_project" />
-          </td>
-            <td align="left" width="225" style="background-color: #f6f5f4">
-            截至保险日期
+            车辆违章日期
           </td>
           <td width="225">
             <el-date-picker
               type="date"
               placeholder="选择日期"
-              v-model="staff.car_Insurance"
+              v-model="staff.date"
+              style="width: 100%"
+            >
+            </el-date-picker>
+          </td>
+          <td align="left" width="225" style="background-color: #f6f5f4">
+            违章驾驶员
+          </td>
+          <td width="225">
+            <input type="text" v-model="staff.drive" />
+          </td>
+        </tr>
+        <tr>
+          <td align="left" width="225" style="background-color: #f6f5f4">
+            车辆违章事由
+          </td>
+          <td width="225">
+            <input type="text" v-model="staff.violation" />
+          </td>
+        </tr>
+        <tr>
+          <td align="left" width="225" style="background-color: #f6f5f4">
+            罚款金额
+          </td>
+          <td width="225">
+            <input type="text" v-model="staff.money" />
+          </td>
+          <td align="left" width="225" style="background-color: #f6f5f4">
+            扣分
+          </td>
+          <td width="225">
+            <input type="text" v-model="staff.points" />
+          </td>
+        </tr>
+        <tr>
+            <td align="left" width="225" style="background-color: #f6f5f4">
+            处理时间
+          </td>
+          <td width="225">
+            <el-date-picker
+              type="date"
+              placeholder="选择日期"
+              v-model="staff.handle"
               style="width: 100%"
             >
             </el-date-picker>
           </td>
         </tr>
+      </table>
+      <div style="width: 900px" align="center">
+        <div
+          style="
+            font-family: Arial;
+            font-weight: 700;
+            text-align: left;
+            line-height: 20px;
+          "
+        >
+          备注
+        </div>
+      </div>
+      <table
+        style="
+          border-top: medium none;
+          border-right: medium none;
+          border-bottom: medium none;
+          border-left: medium none;
+        "
+        cellspacing="0"
+        cellpadding="0"
+        width="900px"
+        border="1"
+        :model="staff"
+      >
+        <tbody>
           <tr>
-               <td align="left" width="225" style="background-color: #f6f5f4">
-            保险开始日期
-          </td>
-          <td width="225">
-            <el-date-picker
-              type="date"
-              placeholder="选择日期"
-              v-model="staff.car_strat"
-              style="width: 100%"
-            >
-            </el-date-picker>
-          </td>
-           <td align="left" width="225" style="background-color: #f6f5f4">
-            保险结束日期
-          </td>
-          <td width="225">
-            <el-date-picker
-              type="date"
-              placeholder="选择日期"
-              v-model="staff.car_end"
-              style="width: 100%"
-            >
-            </el-date-picker>
-          </td>
-        </tr>
+            <td width="900px">
+              <textarea
+                ID="XCommentsTextBox2"
+                CssClass="printer"
+                runat="server"
+                BorderColor="#DCDCDC"
+                BorderWidth="1"
+                Width="900px"
+                Rows="3"
+                TextMode="MultiLine"
+                v-model="staff.remarks"
+              ></textarea>
+            </td>
+          </tr>
+        </tbody>
       </table>
       <div style="width: 900px" align="center">
         <div align="left">
@@ -152,18 +157,15 @@ export default {
     
       //人力资源数据
       staff: {
-       car_Handler: "", //经办人
-                car_Tabulation: "", //制表时间
-                car_Model: "", //车型
-                car_number: "", //车牌号
-                car_purchase: "", //购买日期
-                car_seat: "0", //座位数
-                car_money: "", //保险金额
-                car_passenger: "", //乘客险
-                car_project: "", //保险项目
-                car_Insurance:"",//截止保险日期
-                car_strat:"",//保险开始日期
-                car_end:""//保险结束日期
+       handler: "", //经办人
+                time: "", //处理日期
+                date: "", //车辆违章日期
+                drive: "", //违章驾驶员
+                violation: "", //车辆违章事由
+                money: "", //罚款金额
+                points: "0", //扣分
+                handle: "", //处理时间
+                remarks: "", //备注
       },
     };
   },
@@ -176,7 +178,7 @@ export default {
     //发起人力资源申请
     AddstafflApply() {
       this.$axios({
-        url: this.baseUrl + "AddermInsurance",
+        url: this.baseUrl + "AddermViolation",
         method: "post",
         data: this.staff,
       }).then((res) => {
