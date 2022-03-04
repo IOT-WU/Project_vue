@@ -1,0 +1,375 @@
+<template>
+    <div class=".BodyDiv">
+        <div align="center">
+            <table
+                border="1px"
+                bordercolor="#E4E7ED"
+                width="900xp"
+                cellpadding="5"
+                cellspacing="0"
+                :model="annual_instal"
+            >
+                <tr>
+                    <td colspan="4">
+                        <h2 style="text-align: center">年度计划审批</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        align="left"
+                        colspan="4"
+                        style="background-color: #daecf7"
+                    >
+                        基础信息
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        align="left"
+                        width="225"
+                        style="background-color: #f6f5f4"
+                    >
+                        制表人
+                    </td>
+                    <td width="225">
+                        <input
+                            type="text"
+                            v-model="annual_instal.tAB_people"
+                            style="
+                                outline-color: invert;
+                                outline-style: none;
+                                outline-width: 0px;
+                                border: none;
+                                border-style: none;
+                                text-shadow: none;
+                                -webkit-appearakonce: none;
+                                outline-color: transparent;
+                                box-shadow: none;
+                            "
+                        />
+                    </td>
+                    <td
+                        align="left"
+                        width="225"
+                        style="background-color: #f6f5f4"
+                    >
+                        制表部门
+                    </td>
+                    <td width="225">
+                        <input
+                            type="text"
+                            v-model="annual_instal.tAB_department"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        align="left"
+                        width="225"
+                        style="background-color: #f6f5f4"
+                    >
+                        制表时间
+                    </td>
+                    <td width="225">
+                        <input type="text" v-model="annual_instal.tAB_time" />
+                    </td>
+                    <td
+                        align="left"
+                        width="225"
+                        style="background-color: #f6f5f4"
+                    >
+                        年份
+                    </td>
+                    <td width="225">
+                        <input type="text" v-model="annual_instal.tAB_year" />
+                    </td>
+                </tr>
+            </table>
+
+            <table
+                border="1px"
+                bordercolor="#E4E7ED"
+                width="900xp"
+                cellpadding="5"
+                cellspacing="0"
+            >
+                <tr>
+                    <td
+                        align="left"
+                        colspan="16"
+                        style="background-color: #daecf7"
+                    >
+                        详细信息
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        align="left"
+                        rowspan="2"
+                        style="background-color: #f6f5f4"
+                    >
+                        序号
+                    </td>
+                    <td
+                        align="left"
+                        rowspan="2"
+                        style="background-color: #f6f5f4"
+                    >
+                        岗位
+                    </td>
+                    <td
+                        align="left"
+                        rowspan="2"
+                        style="background-color: #f6f5f4"
+                    >
+                        上年已有
+                    </td>
+                    <td
+                        align="left"
+                        colspan="12"
+                        style="background-color: #f6f5f4; text-align: center"
+                    >
+                        本年预计增加
+                    </td>
+                    <td
+                        align="left"
+                        rowspan="2"
+                        style="background-color: #f6f5f4"
+                    >
+                        合计
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" style="background-color: #f6f5f4">
+                        1月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        2月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        3月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        4月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        5月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        6月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        7月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        8月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        9月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        10月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        11月份
+                    </td>
+                    <td align="left" style="background-color: #f6f5f4">
+                        12月份
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" style="background-color: #f6f5f4">1</td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        align="right"
+                        colspan="2"
+                        style="background-color: #f6f5f4"
+                    >
+                        合计
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left">
+                        <input type="text" />
+                    </td>
+                    <td align="left"></td>
+                </tr>
+                <tr>
+                    <td
+                        align="left"
+                        colspan="16"
+                        style="background-color: #daecf7"
+                    >
+                        备注
+                    </td>
+                </tr>
+            </table>
+            <div style="width: 900px" align="center">
+                <table
+                    style="
+                        border-top: medium none;
+                        border-right: medium none;
+                        border-bottom: medium none;
+                        border-left: medium none;
+                    "
+                    cellspacing="0"
+                    cellpadding="0"
+                    width="900"
+                    border="1"
+                >
+                    <tbody>
+                        <tr>
+                            <td width="900">
+                                <textarea
+                                    ID="XCommentsTextBox2"
+                                    CssClass="printer"
+                                    runat="server"
+                                    BorderColor="#DCDCDC"
+                                    BorderWidth="1"
+                                    Width="100%"
+                                    Rows="3"
+                                    TextMode="MultiLine"
+                                ></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="width: 900px" align="center">
+                <div align="left">
+                    <button @click="1">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            baseUrl: "http://localhost:7438/api/",
+            //年度招聘计划数据
+            annual_instal: {
+                tAB_people: "",
+                tAB_department: "",
+                tAB_time: "",
+                tAB_year: "",
+            },
+        };
+    },
+    mounted() {},
+    methods: {
+        //-----
+    },
+};
+</script>
+
+<style>
+input {
+    outline-color: invert;
+    outline-style: none;
+    outline-width: 0px;
+    border: none;
+    border-style: none;
+    text-shadow: none;
+    -webkit-appearance: none;
+    outline-color: transparent;
+    box-shadow: none;
+    width: 100%;
+}
+textarea {
+    outline-color: invert;
+    outline-style: none;
+    outline-width: 0px;
+    border: none;
+    border-style: none;
+    text-shadow: none;
+    -webkit-appearance: none;
+    outline-color: transparent;
+    box-shadow: none;
+}
+</style>
