@@ -61,7 +61,7 @@
                     </td>
                     <td width="225">
                         <input
-                            type="text"
+                            type="date"
                             v-model="
                                 Announcement.Announcement_date
                             "
@@ -76,12 +76,13 @@
                     >
                         标题
                     </td>
-                    <td width="225">
+                    <td width="225" colspan="3">
                         <input
-                            type="datetime-local"
+                            type="text"
                             v-model="
                                 Announcement.Announcement_title
                             "
+                            
                         />
                     </td>
                 </tr>
@@ -154,7 +155,7 @@
         data() {
             return {
                 baseUrl: "http://localhost:7438/api/",
-                //用章申请
+                //公告管理添加
                 Announcement: {
                     announcement_type: "",
                     announcement_date: "",
@@ -166,12 +167,18 @@
         },
         mounted() { },
         methods: {
-            //用章申请
+            ///公告管理添加
             ChapterApply() {
                 this.dialogAnnouncementVisible = true;
             },
             Addannual() {
-
+                this.$axios({url:this.baseUrl+"GetAnnouncementadd",method:"post",data:this.Announcement}).then((res)=>{
+                    if(res.data>0){
+                        alert("提交成功");
+                    }else{
+                        alert("提交失败")
+                    }
+                })
             }
         },
     };
