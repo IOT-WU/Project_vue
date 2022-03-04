@@ -34,7 +34,7 @@
                     <td width="225">
                         <input type="text" v-model="dt.Dt_Proposer" />
                     </td>
-                    
+
                     <td
                         align="left"
                         width="225"
@@ -84,7 +84,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" width="225" style="background-color: #f6f5f4">
+                    <td
+                        align="left"
+                        width="225"
+                        style="background-color: #f6f5f4"
+                    >
                         附件
                     </td>
                     <td width="225" colspan="3">
@@ -128,10 +132,19 @@
                         交接内容
                     </td>
                     <td width="225" colspan="3">
-                        <el-checkbox-group v-model="dt.Dt_DemtContent">
-                            <el-checkbox label="工作交接" name="type"></el-checkbox>
-                            <el-checkbox label="办公用品交接" name="type"></el-checkbox>
-                            <el-checkbox label="其他" name="type"></el-checkbox>
+                        <el-checkbox-group v-model="DemtContent">
+                            <el-checkbox
+                                label="工作交接"
+                                value="工作交接"
+                            ></el-checkbox>
+                            <el-checkbox
+                                label="办公用品交接"
+                                value="办公用品交接"
+                            ></el-checkbox>
+                            <el-checkbox
+                                label="其他"
+                                value="其他"
+                            ></el-checkbox>
                         </el-checkbox-group>
                     </td>
                 </tr>
@@ -165,10 +178,14 @@
                         交接内容
                     </td>
                     <td width="225" colspan="3">
-                        <el-checkbox-group v-model="dt.Dt_FinanceContent">
-                            <el-checkbox label="取消财务报销系统账号与权限" name="type"></el-checkbox>
-                            <el-checkbox label="金蝶财务系统" name="type"></el-checkbox>
-                            <el-checkbox label="查询欠款、借支、财务未清事项" name="type"></el-checkbox>
+                        <el-checkbox-group v-model="FinanceContent">
+                            <el-checkbox
+                                label="取消财务报销系统账号与权限"
+                            ></el-checkbox>
+                            <el-checkbox label="金蝶财务系统"></el-checkbox>
+                            <el-checkbox
+                                label="查询欠款、借支、财务未清事项"
+                            ></el-checkbox>
                         </el-checkbox-group>
                     </td>
                 </tr>
@@ -202,13 +219,21 @@
                         交接内容
                     </td>
                     <td width="225" colspan="3">
-                        <el-checkbox-group v-model="dt.Dt_AdminCase">
-                            <el-checkbox label="返还钥匙、桌柜、电话、名片等" name="type"></el-checkbox>
-                            <el-checkbox label="退回职工工作牌、门禁卡" name="type"></el-checkbox>
-                            <el-checkbox label="手机话费结算" name="type"></el-checkbox>
-                            <el-checkbox label="档案、户口是否迁出" name="type"></el-checkbox>
-                            <el-checkbox label="固定资产清算（手提电脑结算以及其他固定资产结算）" name="type"></el-checkbox>
-                            <el-checkbox label="各类图书资料" name="type"></el-checkbox>
+                        <el-checkbox-group v-model="AdminContent">
+                            <el-checkbox
+                                label="返还钥匙、桌柜、电话、名片等"
+                            ></el-checkbox>
+                            <el-checkbox
+                                label="退回职工工作牌、门禁卡"
+                            ></el-checkbox>
+                            <el-checkbox label="手机话费结算"></el-checkbox>
+                            <el-checkbox
+                                label="档案、户口是否迁出"
+                            ></el-checkbox>
+                            <el-checkbox
+                                label="固定资产清算（手提电脑结算以及其他固定资产结算）"
+                            ></el-checkbox>
+                            <el-checkbox label="各类图书资料"></el-checkbox>
                         </el-checkbox-group>
                     </td>
                 </tr>
@@ -225,13 +250,28 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="16" style="background-color: #daecf7"> 备注</td>
+                    <td
+                        align="left"
+                        colspan="16"
+                        style="background-color: #daecf7"
+                    >
+                        备注
+                    </td>
                 </tr>
             </table>
             <div style="width: 900px" align="center">
                 <table
-                    style="border-top: medium none;  border-right: medium none;  border-bottom: medium none;  border-left: medium none;  "
-                    cellspacing="0"   cellpadding="0" width="900" border="1">
+                    style="
+                        border-top: medium none;
+                        border-right: medium none;
+                        border-bottom: medium none;
+                        border-left: medium none;
+                    "
+                    cellspacing="0"
+                    cellpadding="0"
+                    width="900"
+                    border="1"
+                >
                     <tbody>
                         <tr>
                             <td width="900">
@@ -251,7 +291,7 @@
                     </tbody>
                 </table>
             </div>
-           
+
             <div style="width: 900px" align="center">
                 <div align="left">
                     <button @click="AddstafflApply">提交</button>
@@ -275,21 +315,24 @@ export default {
                 processName: "离职交接流程",
                 DeparturetTransferData: "",
             },
+            DemtContent: [],
+            FinanceContent: [],
+            AdminContent: [],
             //人力资源数据
             dt: {
-                Dt_Proposer:"",
-                Dt_Demt:"",
-                Dt_ApplyDate:"",
-                Dt_Certify:"",
-                Dt_Files:"",
-                Dt_Heir:"",
-                Dt_DemtContent:"",
-                Dt_DemtCase:"",
-                Dt_FinanceContent:"",
-                Dt_FinanceCase:"",
-                Dt_AdminContent:"",
-                Dt_AdminCase:"",
-                Dt_Remark:"",
+                Dt_Proposer: "",
+                Dt_Demt: "",
+                Dt_ApplyDate: "",
+                Dt_Certify: "",
+                Dt_Files: "",
+                Dt_Heir: "",
+                Dt_DemtContent: "",
+                Dt_DemtCase: "",
+                Dt_FinanceContent: "",
+                Dt_FinanceCase: "",
+                Dt_AdminContent: "",
+                Dt_AdminCase: "",
+                Dt_Remark: "",
             },
         };
     },
@@ -301,14 +344,22 @@ export default {
         },
         //发起离职交接申请
         AddstafflApply() {
-            this.bpmTransfer.DeparturetTransferData=JSON.stringify(this.dt);
-            this.$axios({url: this.baseUrl+"startDeparturetTransfer",method: "post",data: this.bpmTransfer}).then((res)=>{
-                if(res.data == ""){
-                    alert("提交成功")
-                }else{
-                    alert("提交失败")
+            this.dt.Dt_DemtContent = this.DemtContent.toString();
+            this.dt.Dt_FinanceContent = this.FinanceContent.toString();
+            this.dt.Dt_AdminContent = this.AdminContent.toString();
+            console.log(this.dt);
+            this.bpmTransfer.DeparturetTransferData = JSON.stringify(this.dt);
+            this.$axios({
+                url: this.baseUrl + "startDeparturetTransfer",
+                method: "post",
+                data: this.bpmTransfer,
+            }).then((res) => {
+                if (res.data == "") {
+                    alert("提交成功");
+                } else {
+                    alert("提交失败");
                 }
-            })
+            });
         },
     },
 };

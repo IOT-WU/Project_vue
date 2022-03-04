@@ -7,22 +7,26 @@ import EmployApply from '../views/EmployApply.vue'//录用申请
 import AnnualApply from '../views/AnnualApply.vue'//招聘人员申请
 import DepartureApply from '../views/DepartureApply.vue'//离职申请
 import stafflApply from '../views/stafflApply.vue'//人力资源申请
+
+//菜单
 import LaunchApplication from '../views/LaunchApplication.vue'//申请子菜单
+import ProcessedApplication from '../views/ProcessedApplication.vue'//已处理申请
+import PendingApplication from '../views/PendingApplication.vue'//待处理申请
+import EndApplication from '../views/EndApplication.vue'//已完成申请
+import MyApplication from '../views/MyApplication.vue'//我的申请
+import AssetsaddApply from '../views/AssetsaddApply.vue'  //资产添加页面
+import AssetsApply from '../views/AssetsApply.vue'//资产申请页面
+import Announcementmanagement from '../views/Announcementmanagement.vue'//公告管理页面
+//******
+
 import chapterApply from '../views/chapterApply.vue'//用章申请
 import PrintsApply from '../views/PrintsApply.vue'//刻章申请
 import AnnouncementApply from '../views/AnnouncementApply.vue'//公告基本信息
 import FileApply from '../views/FileApply.vue'//文件管理表
 import TransferApply from '../views/TransferApply.vue'  //离职交接表
-import Announcementmanagement from '../views/Announcementmanagement.vue'//公告管理页面
 import EmployeeturnoverApply from '../views/EmployeeturnoverApply.vue'  //员工离职面谈表
-import AssetsaddApply from '../views/AssetsaddApply.vue'  //资产添加页面
-import AssetsApply from '../views/AssetsApply.vue'//资产申请页面
 import carapplicationApply from '../views/carapplicationApply.vue'//用车申请
-import EndApplication from '../views/EndApplication.vue'//已完成申请
 import MeetingRoomNew from '../views/MeetingRoomNew.vue'//会议室新增
-import MyApplication from '../views/MyApplication.vue'//我的申请
-import PendingApplication from '../views/PendingApplication.vue'//待处理申请
-import ProcessedApplication from '../views/ProcessedApplication.vue'//已处理申请
 import Reception from '../views/Reception.vue'//接待申请
 import ReservationMeetingRoom from '../views/ReservationMeetingRoom.vue'//会议室预定
 import ReservationProcurement from '../views/ReservationProcurement.vue'//日常用品管理表单(以列表的形式展示)
@@ -60,7 +64,6 @@ const routes = [
         name: 'stafflApply',
         component: stafflApply
     },
-
     {
         path: '/chapterApply',
         name: 'chapterApply',
@@ -121,8 +124,6 @@ const routes = [
         name: 'Procurement',
         component: Procurement
     },
-    
-    
     {
         path: '/Menu',
         name: 'Menu',
@@ -133,6 +134,30 @@ const routes = [
                 path: '/LaunchApplication',
                 name: 'LaunchApplication',
                 component: LaunchApplication
+            },
+            {
+                //已处理申请
+                path: '/ProcessedApplication',
+                name: 'ProcessedApplication',
+                component: ProcessedApplication
+            },
+            {
+                //待处理申请
+                path: '/PendingApplication',
+                name: 'PendingApplication',
+                component: PendingApplication
+            },
+            {
+                //已完成申请
+                path: '/EndApplication',
+                name: 'EndApplication',
+                component: EndApplication
+            },
+            {
+                //我的申请
+                path: '/MyApplication',
+                name: 'MyApplication',
+                component: MyApplication
             },
             {
                 //资产申请页面
