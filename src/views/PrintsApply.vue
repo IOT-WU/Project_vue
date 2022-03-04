@@ -83,8 +83,11 @@
                         刻章留印标记
                     </td>
                     <td width="225" height="100" colspan="3">
-                        <el-upload action="https://jsonplaceholder.typicode.com/posts/">
-                            <el-button type="success" size="mini">+ 添加图片</el-button>
+                        <el-upload action="http://localhost:7438/Img/Upload" list-type="picture-card"
+                            :on-preview="handlePictureCardPreview" :on-remove="handleRemove" :on-success="handSuccess">
+                            <el-icon>
+                                <plus />
+                            </el-icon>
                         </el-upload>
                     </td>
                 </tr>
@@ -123,7 +126,11 @@
 </template>
 
 <script>
-    export default {
+import { Plus } from "@element-plus/icons-vue";
+export default {
+    components: {
+        Plus,
+    },
         data() {
             return {
                 baseUrl: "http://localhost:7438/api/",
@@ -145,6 +152,8 @@
                     prints_tag: "",
                     prints_note: "",
                 },
+                dialogImageUrl: "",
+            dialogImgVisible: false,
             };
         },
         mounted() {
@@ -165,7 +174,14 @@
                     }
                 })
 
-            }
+            }, //图片删除
+        handleRemove(file, fileList) {
+            console.log(file, fileList);
+        },
+        //上传成功后调用
+        handSuccess(response, file, fileList) {
+           this.Prints.prints_tag = response;
+        },
         },
     };
 </script>

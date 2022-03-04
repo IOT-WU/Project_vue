@@ -105,10 +105,10 @@ export default {
   data() {
     return {
       baseUrl: "http://localhost:7438/api/",
-      dialogInsuranceVisible: false,
-      dialogmaintainVisible: false, //用章申请表单
-      dialogrepairVisible: false, //刻章申请表单
-      dialogViolationVisible: false, //用车申请表单
+      dialogInsuranceVisible: false, //车辆保险
+      dialogmaintainVisible: false, //车辆保养
+      dialogrepairVisible: false, //车辆维修
+      dialogViolationVisible: false, //车辆违章
     };
   },
   mounted() {},

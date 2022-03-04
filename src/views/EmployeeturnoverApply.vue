@@ -509,13 +509,19 @@
         },
         mounted() {},
         methods: {
-            //离职交接申请
+            //离职面谈添加
             stafflApply() {
                 this.dialogexitVisible = true;
             },
-            //发起离职交接申请
+            //离职面谈添加
             AddexitApply() {
-
+                this.$axios({url:this.baseUrl + "GetExitInterviewadd",method:"post",data:this.exit}).then((res)=>{
+                    if(res.data>0){
+                        alert("提交成功");
+                    }else{
+                        alert("提交失败");
+                    }
+                })
             },
         },
     };

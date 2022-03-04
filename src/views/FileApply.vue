@@ -152,7 +152,7 @@
                     >
                         内容
                     </td>
-                    <td width="225">
+                    <td width="225" colspan="3">
                         <input
                             type="text"
                             v-model="
@@ -216,7 +216,13 @@
                 this.dialogFileVisible = true;
             },
             Addannual() {
-
+                this.$axios({url:this.baseUrl+"GetFileadd",method:"post",data:this.File}).then((res)=>{
+                    if(res.data>0){
+                        alert("提价成功");
+                    }else{
+                        alert("提交失败");
+                    }
+                })
             }
         },
     };
