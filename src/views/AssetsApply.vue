@@ -9,12 +9,12 @@
           <el-icon>
             <edit />
           </el-icon>
-          <el-button type="text" @click="dialogluyongVisible = true"
+          <el-button type="text" @click="dialogInsuranceVisible = true"
             >车辆保险记录表</el-button
           >
-          <!-- 录用员工表单 -->
+          <!-- 车辆保险记录表 -->
           <el-dialog
-            v-model="dialogluyongVisible"
+            v-model="dialogInsuranceVisible"
             title="车辆保险"
             width="1000px"
           >
@@ -32,17 +32,17 @@
           <el-icon>
             <edit />
           </el-icon>
-          <el-button type="text" @click="dialogluyongVisible = true"
+          <el-button type="text" @click="dialogmaintainVisible = true"
             >车辆保养记录表</el-button
           >
-          <!-- 录用员工表单 -->
+          <!-- 车辆保养记录表 -->
           <el-dialog
-            v-model="dialogluyongVisible"
+            v-model="dialogmaintainVisible"
             title="车辆保养"
             width="1000px"
           >
             <iframe
-              src="http://localhost:8080/EmployApply"
+              src="http://localhost:8080/maintain"
               width="950px"
               height="450px"
               frameborder="0"
@@ -55,19 +55,15 @@
           <el-icon>
             <edit />
           </el-icon>
-          <el-button type="text" @click="dialogluyongVisible = true"
-            >车辆维修记录表</el-button
+          <el-button type="text" @click="dialogrepairVisible = true"
+            >车辆维修</el-button
           >
-          <!-- 录用员工表单 -->
-          <el-dialog
-            v-model="dialogluyongVisible"
-            title="车辆维修"
-            width="1000px"
-          >
+          <!-- 车辆维修 -->
+          <el-dialog v-model="dialogrepairVisible" width="1000px">
             <iframe
-              src="http://localhost:8080/EmployApply"
+              src="http://localhost:8080/repair"
               width="950px"
-              height="450px"
+              height="550px"
               frameborder="0"
             ></iframe>
           </el-dialog>
@@ -78,17 +74,17 @@
           <el-icon>
             <edit />
           </el-icon>
-          <el-button type="text" @click="dialogluyongVisible = true"
+          <el-button type="text" @click="dialogViolationVisible = true"
             >车辆违章记录表</el-button
           >
-          <!-- 录用员工表单 -->
+          <!-- 车辆违章记录表 -->
           <el-dialog
-            v-model="dialogluyongVisible"
+            v-model="dialogViolationVisible"
             title="车辆违章"
             width="1000px"
           >
             <iframe
-              src="http://localhost:8080/EmployApply"
+              src="http://localhost:8080/Violation"
               width="950px"
               height="450px"
               frameborder="0"
@@ -109,9 +105,10 @@ export default {
   data() {
     return {
       baseUrl: "http://localhost:7438/api/",
-      dialogChapterVisible: false, //用章申请表单
-      dialogPrintsVisible: false, //刻章申请表单
-      dialogcarUseVisible: false, //用车申请表单
+      dialogInsuranceVisible: false,
+      dialogmaintainVisible: false, //用章申请表单
+      dialogrepairVisible: false, //刻章申请表单
+      dialogViolationVisible: false, //用车申请表单
     };
   },
   mounted() {},
