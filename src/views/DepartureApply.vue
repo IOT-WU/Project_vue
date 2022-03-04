@@ -270,7 +270,27 @@ export default {
             },
         };
     },
-    mounted() {},
+
+    
+
+    mounted() {
+        //默认数据为空
+        this.Departure = {
+            departure_Applicant: "",
+            departure_Department: "",
+            departure_Time: "",
+            departure_Position: "",
+            departure_Entry: "",
+            departure_Data: "",
+            departure_Type: 0,
+            departure_Why: "",
+            departure_Note: "",
+        };
+        if (window.sessionStorage["taskId"] != "") {
+            this.findDeparture(window.sessionStorage["taskId"]);
+            window.sessionStorage.removeItem("taskId");
+        }
+    },
     methods: {
         //发起离职申请
         AddDeparture() {
@@ -288,6 +308,17 @@ export default {
                     this.$message.error("提交失败");
                 }
                 this.dialogDepartureVisible = false;
+            });
+        },
+
+        //离职申请反填
+        findDeparture(id) {
+            this.$axios({
+                url: this.baseUrl + "finddeparture?id=" + id,
+                method: "get",
+            }).then((res) => {
+                console.log(res.data);
+                this.Departure = res.data;
             });
         },
     },

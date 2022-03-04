@@ -50,19 +50,16 @@
                                 @click="Goto('PendingApplication')"
                                 >待处理申请</el-menu-item
                             >
-                            <el-menu-item index="1-3" @click="Goto('')"
+                            <el-menu-item
+                                index="1-3"
+                                @click="Goto('ProcessedApplication')"
                                 >已处理申请</el-menu-item
                             >
-                            <el-menu-item index="1-4" @click="Goto('')"
+                            <el-menu-item index="1-4" @click="Goto('MyApplication')"
                                 >我的申请</el-menu-item
                             >
-                            <el-menu-item index="1-5" @click="Goto('')"
+                            <el-menu-item index="1-5" @click="Goto('EndApplication')"
                                 >已完成申请</el-menu-item
-                            >
-                            <el-menu-item
-                                index="1-6"
-                                @click="Goto('RequestApplication')"
-                                >审批申请</el-menu-item
                             >
                         </el-sub-menu>
                         <el-sub-menu index="2">
@@ -72,19 +69,19 @@
                                 @click="Goto('AssetsApply')"
                                 >资产申请</el-menu-item
                             >
-                            <el-menu-item index="2-2" @click="Goto('')"
+                            <el-menu-item index="2-2" @click="Goto('AssetsaddApply')"
                                 >资产添加</el-menu-item
                             >
                         </el-sub-menu>
                         <el-sub-menu index="3">
                             <template #title> 其他管理 </template>
-                            <el-menu-item index="3-1" @click="Goto('')"
+                            <el-menu-item index="3-1" @click="Goto('Announcementmanagement')"
                                 >公告管理</el-menu-item
                             >
                             <el-menu-item index="3-2" @click="Goto('')"
                                 >年假管理</el-menu-item
                             >
-                            <el-menu-item index="3-2" @click="Goto('')"
+                            <el-menu-item index="3-3" @click="Goto('')"
                                 >维护管理</el-menu-item
                             >
                         </el-sub-menu>

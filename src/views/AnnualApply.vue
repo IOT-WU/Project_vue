@@ -312,6 +312,7 @@
                                     Width="100%"
                                     Rows="3"
                                     TextMode="MultiLine"
+                                    v-model="annual_detalis.annual_note"
                                 ></textarea>
                             </td>
                         </tr>
@@ -320,7 +321,7 @@
             </div>
             <div style="width: 900px" align="center">
                 <div align="left">
-                    <button @click="1">提交</button>
+                    <button @click="Addannual">提交</button>
                 </div>
             </div>
         </div>
@@ -332,6 +333,15 @@ export default {
     data() {
         return {
             baseUrl: "http://localhost:7438/api/",
+            bpmannual: {
+                action: "提交",
+                bpmUser: window.sessionStorage["account"],
+                bpmUserPass: window.sessionStorage["password"],
+                fullName: window.sessionStorage["account"],
+                processName: "年度招聘计划流程",
+                PlanData: "",
+                PlanInfoDetail: "",
+            },
             //年度招聘计划数据
             annual_instal: {
                 tAB_people: "",
@@ -339,10 +349,97 @@ export default {
                 tAB_time: "",
                 tAB_year: "",
             },
+            //年度招聘计划详情表数据
+            annual_detalis: {
+                annual_jobs: "", //详细岗位
+                annual_existing: "", //详细上年已有
+                annual_January: "", //详细1月份
+                annual_February: "", //详细2月份
+                annual_march: "", //详细3份
+                annual_April: "", //详细4月份
+                annual_may: "", //详细5月份
+                annual_June: "", //详细6月份
+                annual_July: "", //详细7月份
+                annual_August: "", //详细8月份
+                annual_September: "", //详细9月份
+                annual_October: "", //详细10月份
+                annual_November: "", //详细11月份
+                annual_December: "", //详细12月份
+                annual_combined: "", //合计
+                annual_note: "", //备注
+            },
         };
     },
-    mounted() {},
+    mounted() {
+        //年度招聘计划数据
+        this.annual_instal = {
+            tAB_people: "",
+            tAB_department: "",
+            tAB_time: "",
+            tAB_year: "",
+        };
+        this.annual_detalis = {
+            annual_jobs: "", //详细岗位
+            annual_existing: "", //详细上年已有
+            annual_January: "", //详细1月份
+            annual_February: "", //详细2月份
+            annual_march: "", //详细3份
+            annual_April: "", //详细4月份
+            annual_may: "", //详细5月份
+            annual_June: "", //详细6月份
+            annual_July: "", //详细7月份
+            annual_August: "", //详细8月份
+            annual_September: "", //详细9月份
+            annual_October: "", //详细10月份
+            annual_November: "", //详细11月份
+            annual_December: "", //详细12月份
+            annual_combined: "", //合计
+            annual_note: "", //备注
+        };
+        if (window.sessionStorage["taskId"] != "") {
+            this.findinformation(window.sessionStorage["taskId"]);
+            window.sessionStorage.removeItem("taskId");
+        }
+    },
     methods: {
+        //招聘人员申请
+        AnnualApply() {
+            this.dialogAnnualVisible = true;
+        },
+        //发起招聘人员申请
+        Addannual() {
+            this.bpmannual.PlanData = JSON.stringify(this.annual_instal);
+            this.bpmannual.PlanInfoDetail = JSON.stringify(this.annual_detalis);
+            this.$axios({
+                url: this.baseUrl + "stratPlan",
+                method: "post",
+                data: this.bpmannual,
+            }).then((res) => {
+                if (res.data == "") {
+                    alert("提交成功");
+                } else {
+                    alert("提交失败");
+                }
+            });
+        },
+        //年度计划反填
+        findinformation(id) {
+            this.$axios({
+                url: this.baseUrl + "findinformation?id=" + id,
+                method: "get",
+            }).then((res) => {
+                console.log(res.data);
+                this.annual_instal = res.data;
+                console.log(this.annual_instal);
+            });
+            this.$axios({
+                url: this.baseUrl + "findannual_Details?id=" + id,
+                method: "get",
+            }).then((res) => {
+                console.log(res.data);
+                this.annual_detalis = res.data;
+            });
+        },
         //-----
     },
 };

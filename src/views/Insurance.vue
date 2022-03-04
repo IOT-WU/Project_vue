@@ -189,8 +189,17 @@ export default {
             },
         };
     },
-    mounted() {},
-    methods: {},
+    methods:{
+        onSubmit(){
+            this.$axios({url:"",method:"post",data:this.data}).then((res)=>{
+                if(res.data>0){
+                alert('添加成功');
+                }else{
+                    alert('添加失败');
+                }
+            })
+        }
+    }
 };
 </script>
 

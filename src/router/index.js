@@ -9,10 +9,26 @@ import DepartureApply from '../views/DepartureApply.vue'//离职申请
 import stafflApply from '../views/stafflApply.vue'//人力资源申请
 import Insurance from '../views/Insurance.vue'//车辆保险
 
+//菜单
 import LaunchApplication from '../views/LaunchApplication.vue'//申请子菜单
-import RequestApplication from '../views/RequestApplication.vue'//审批子菜单
+import ProcessedApplication from '../views/ProcessedApplication.vue'//已处理申请
 import PendingApplication from '../views/PendingApplication.vue'//待处理申请
-import AssetsApply from '../views/AssetsApply.vue'//资产申请
+import EndApplication from '../views/EndApplication.vue'//已完成申请
+import MyApplication from '../views/MyApplication.vue'//我的申请
+import AssetsaddApply from '../views/AssetsaddApply.vue'  //资产添加页面
+import AssetsApply from '../views/AssetsApply.vue'//资产申请页面
+import Announcementmanagement from '../views/Announcementmanagement.vue'//公告管理页面
+//******
+
+import chapterApply from '../views/chapterApply.vue'//用章申请
+import PrintsApply from '../views/PrintsApply.vue'//刻章申请
+import AnnouncementApply from '../views/AnnouncementApply.vue'//公告基本信息
+import FileApply from '../views/FileApply.vue'//刻章审批
+import TransferApply from '../views/TransferApply.vue'  //离职交接表
+import EmployeeturnoverApply from '../views/EmployeeturnoverApply.vue'  //员工离职面谈表
+import carapplicationApply from '../views/carapplicationApply.vue'//用车申请
+import Reception from '../views/Reception.vue'//接待申请
+import Procurement from '../views/Procurement.vue'//日常采购清单
 
 const routes = [
     {
@@ -51,6 +67,51 @@ const routes = [
         component: stafflApply
     },
     {
+        path: '/chapterApply',
+        name: 'chapterApply',
+        component: chapterApply
+    },
+    {
+        path: '/PrintsApply',
+        name: 'PrintsApply',
+        component: PrintsApply
+    },
+    {
+        path: '/AnnouncementApply',
+        name: 'AnnouncementApply',
+        component: AnnouncementApply
+    },
+    {
+        path: '/FileApply',
+        name: 'FileApply',
+        component: FileApply
+    },
+    {
+        path: '/TransferApply',
+        name: 'TransferApply',
+        component: TransferApply
+    },
+    {
+        path: '/EmployeeturnoverApply',
+        name: 'EmployeeturnoverApply',
+        component: EmployeeturnoverApply
+    },
+    {
+        path: '/carapplicationApply',
+        name: 'carapplicationApply',
+        component: carapplicationApply
+    },
+    {
+        path: '/Reception',
+        name: 'Reception',
+        component: Reception
+    },
+    {
+        path: '/Procurement',
+        name: 'Procurement',
+        component: Procurement
+    },
+    {
         path: '/Menu',
         name: 'Menu',
         component: Menu,
@@ -62,10 +123,28 @@ const routes = [
                 component: LaunchApplication
             },
             {
-                //发起申请页面
-                path: '/RequestApplication',
-                name: 'RequestApplication',
-                component: RequestApplication
+                //已处理申请
+                path: '/ProcessedApplication',
+                name: 'ProcessedApplication',
+                component: ProcessedApplication
+            },
+            {
+                //待处理申请
+                path: '/PendingApplication',
+                name: 'PendingApplication',
+                component: PendingApplication
+            },
+            {
+                //已完成申请
+                path: '/EndApplication',
+                name: 'EndApplication',
+                component: EndApplication
+            },
+            {
+                //我的申请
+                path: '/MyApplication',
+                name: 'MyApplication',
+                component: MyApplication
             },
             {
                 //资产申请页面
@@ -74,10 +153,16 @@ const routes = [
                 component: AssetsApply
             },
             {
-                //待处理申请
-                path: '/PendingApplication',
-                name: 'PendingApplication',
-                component: PendingApplication
+                //公告管理页面
+                path: '/Announcementmanagement',
+                name: 'Announcementmanagement',
+                component: Announcementmanagement
+            },
+            {
+                //资产添加页面
+                path: '/AssetsaddApply',
+                name: 'AssetsaddApply',
+                component: AssetsaddApply
             },
         ]
     },
