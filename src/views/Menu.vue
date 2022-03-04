@@ -61,9 +61,6 @@
                             <el-menu-item index="1-5" @click="Goto('EndApplication')"
                                 >已完成申请</el-menu-item
                             >
-                            <el-menu-item index="1-6" @click="Goto('RequestApplication')"
-                                >审批申请</el-menu-item
-                            >
                         </el-sub-menu>
                         <el-sub-menu index="2">
                             <template #title> 公司资产管理 </template>
@@ -84,7 +81,7 @@
                             <el-menu-item index="3-2" @click="Goto('')"
                                 >年假管理</el-menu-item
                             >
-                            <el-menu-item index="3-2" @click="Goto('')"
+                            <el-menu-item index="3-3" @click="Goto('')"
                                 >维护管理</el-menu-item
                             >
                         </el-sub-menu>
