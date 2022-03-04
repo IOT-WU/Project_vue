@@ -4,7 +4,7 @@
     </div>
     <div class="demo-collapse">
         <el-collapse accordion>
-            <el-collapse-item title="公告基本信息" name="8">
+            <el-collapse-item title="公告基本信息" name="1">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
@@ -28,7 +28,7 @@
                 </div>
             </el-collapse-item>
 
-            <el-collapse-item title="文件管理信息" name="9">
+            <el-collapse-item title="文件管理信息" name="2">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
