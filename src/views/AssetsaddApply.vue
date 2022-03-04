@@ -4,7 +4,7 @@
     </div>
     <div class="demo-collapse">
         <el-collapse accordion>
-            
+
         </el-collapse>
     </div>
 </template>
