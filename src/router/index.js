@@ -7,6 +7,7 @@ import EmployApply from '../views/EmployApply.vue'//录用申请
 import AnnualApply from '../views/AnnualApply.vue'//招聘人员申请
 import DepartureApply from '../views/DepartureApply.vue'//离职申请
 import stafflApply from '../views/stafflApply.vue'//人力资源申请
+import Insurance from '../views/Insurance.vue'//车辆保险
 
 //菜单
 import LaunchApplication from '../views/LaunchApplication.vue'//申请子菜单
@@ -43,6 +44,11 @@ const routes = [
         path: '/LeaveApply',
         name: 'LeaveApply',
         component: LeaveApply
+    },
+    {
+        path: '/Insurance',
+        name: 'Insurance',
+        component: Insurance
     },
     {
         path: '/EmployApply',

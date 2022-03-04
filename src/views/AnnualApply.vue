@@ -34,17 +34,10 @@
                         制表部门
                     </td>
                     <td width="225">
-                        <input type="text" v-model="annual_instal.tAB_department" style="
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                        <input
+                            type="text"
+                            v-model="annual_instal.tAB_department"
+                        />
                     </td>
                 </tr>
                 <tr>
@@ -52,39 +45,24 @@
                         制表时间
                     </td>
                     <td width="225">
-                        <input type="date" v-model="annual_instal.tAB_time" style="
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                        <input type="text" v-model="annual_instal.tAB_time" />
                     </td>
                     <td align="left" width="225" style="background-color: #f6f5f4">
                         年份
                     </td>
                     <td width="225">
-                        <input type="date" v-model="annual_instal.tAB_year" style="
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                        <input type="text" v-model="annual_instal.tAB_year" />
                     </td>
                 </tr>
             </table>
 
-            <table border="1px" bordercolor="#E4E7ED" width="900xp" cellpadding="5" cellspacing="0"
-                :model="annual_detalis">
+            <table
+                border="1px"
+                bordercolor="#E4E7ED"
+                width="900xp"
+                cellpadding="5"
+                cellspacing="0"
+            >
                 <tr>
                     <td align="left" colspan="16" style="background-color: #daecf7">
                         详细信息
@@ -148,416 +126,98 @@
                 <tr>
                     <td align="left" style="background-color: #f6f5f4">1</td>
                     <td>
-                        <input type="text" v-model="annual_detalis.annual_jobs" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_existing" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_January" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_February" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_march" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_April" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_may" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_June" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_July" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_August" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_September" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_October" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_November" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_December" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_combined" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
                 </tr>
                 <tr>
                     <td align="right" colspan="2" style="background-color: #f6f5f4">
                         合计
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_existing" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_January" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_February" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_march" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_April" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_may" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_June" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_July" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_August" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_September" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_October" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_November" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_December" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
-                    <td>
-                        <input type="text" v-model="annual_detalis.annual_combined" style="
-                                width: 50px;
-                                outline-color: invert;
-                                outline-style: none;
-                                outline-width: 0px;
-                                border: none;
-                                border-style: none;
-                                text-shadow: none;
-                                -webkit-appearance: none;
-                                outline-color: transparent;
-                                box-shadow: none;
-                            " />
+                    <td align="left">
+                        <input type="text" />
                     </td>
+                    <td align="left"></td>
                 </tr>
                 <tr>
                     <td align="left" colspan="16" style="background-color: #daecf7">
@@ -710,28 +370,27 @@
 </script>
 
 <style>
-    input {
-        outline-color: invert;
-        outline-style: none;
-        outline-width: 0px;
-        border: none;
-        border-style: none;
-        text-shadow: none;
-        -webkit-appearance: none;
-        outline-color: transparent;
-        box-shadow: none;
-        width: 100%;
-    }
-
-    textarea {
-        outline-color: invert;
-        outline-style: none;
-        outline-width: 0px;
-        border: none;
-        border-style: none;
-        text-shadow: none;
-        -webkit-appearance: none;
-        outline-color: transparent;
-        box-shadow: none;
-    }
+input {
+    outline-color: invert;
+    outline-style: none;
+    outline-width: 0px;
+    border: none;
+    border-style: none;
+    text-shadow: none;
+    -webkit-appearance: none;
+    outline-color: transparent;
+    box-shadow: none;
+    width: 100%;
+}
+textarea {
+    outline-color: invert;
+    outline-style: none;
+    outline-width: 0px;
+    border: none;
+    border-style: none;
+    text-shadow: none;
+    -webkit-appearance: none;
+    outline-color: transparent;
+    box-shadow: none;
+}
 </style>

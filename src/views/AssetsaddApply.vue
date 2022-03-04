@@ -10,11 +10,7 @@
 </template>
 
 <script>
-    import { Edit } from "@element-plus/icons-vue";
     export default {
-        components: {
-            Edit,
-        },
         data() {
             return {
                 baseUrl: "http://localhost:7438/api/",
