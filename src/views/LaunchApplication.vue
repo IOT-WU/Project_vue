@@ -113,6 +113,53 @@
                     </el-dialog>
                 </div>
             </el-collapse-item>
+
+            <el-collapse-item title="离职交接表" name="6">
+                <div style="text-align: left; margin-left: 50px">
+                    <el-icon>
+                        <edit />
+                    </el-icon>
+                    <el-button type="text" @click="dialogTransferVisible = true"
+                        >离职交接表</el-button
+                    >
+                    <!-- 离职交接表 -->
+                    <el-dialog
+                        v-model="dialogTransferVisible"
+                        title="离职交接表"
+                        width="1000px"
+                    >
+                        <iframe
+                            src="http://localhost:8080/TransferApply"
+                            width="950px"
+                            height="600px"
+                            frameborder="0"
+                        ></iframe>
+                    </el-dialog>
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="员工离职面谈表" name="7">
+                <div style="text-align: left; margin-left: 50px">
+                    <el-icon>
+                        <edit />
+                    </el-icon>
+                    <el-button type="text" @click="dialogexitVisible = true"
+                        >员工离职面谈表</el-button
+                    >
+                    <!-- 员工离职面谈表 -->
+                    <el-dialog
+                        v-model="dialogexitVisible"
+                        title="员工离职面谈表"
+                        width="1000px"
+                    >
+                        <iframe
+                            src="http://localhost:8080/EmployeeturnoverApply"
+                            width="950px"
+                            height="1200px"
+                            frameborder="0"
+                        ></iframe>
+                    </el-dialog>
+                </div>
+            </el-collapse-item>
         </el-collapse>
     </div>
 </template>
@@ -131,6 +178,8 @@ export default {
             dialogDepartureVisible: false, //离职表单
             dialogAnnualVisible: false, //招聘表单
             dialogstaffVisible: false, //人力资源表单
+            dialogTransferVisible: false, //离职交接表单
+            dialogexitVisible: false, //员工离职面谈表单
         };
     },
     mounted() {},

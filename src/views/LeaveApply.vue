@@ -173,6 +173,7 @@
 
 <script>
 export default {
+    inject: ["reload"],
     data() {
         return {
             baseUrl: "http://localhost:7438/api/",
@@ -202,7 +203,6 @@ export default {
         };
     },
     mounted() {
-        this.GetLeaveType();
         this.leaveform = {
             leave_Proposer: "",
             leave_Demo: "",
@@ -215,6 +215,7 @@ export default {
             leave_AffixName: "",
             leave_Remark: "",
         };
+        this.GetLeaveType();
         if (window.sessionStorage["taskId"] != "") {
             this.findLeave(window.sessionStorage["taskId"]);
             window.sessionStorage.removeItem("taskId");
@@ -246,7 +247,6 @@ export default {
             var aDate, oDate1, oDate2, iDays;
             aDate = this.leaveform.leave_StartDate.slice(0, 10).split("-");
             oDate1 = new Date(aDate[1] + "-" + aDate[2] + "-" + aDate[0]); //转换为yyyy-MM-dd格式
-
             aDate = this.leaveform.leave_EndDate.slice(0, 10).split("-");
             oDate2 = new Date(aDate[1] + "-" + aDate[2] + "-" + aDate[0]);
             iDays = Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24; //把相差的毫秒数转换为天数
@@ -256,6 +256,7 @@ export default {
         },
         //发起请假流程
         AddLeaveApply() {
+            console.log(this.leaveform);
             this.bpmLeave.leaveData = JSON.stringify(this.leaveform);
             this.$axios({
                 url: this.baseUrl + "startleave",
@@ -265,6 +266,7 @@ export default {
                 console.log(res);
                 if (res.data == "") {
                     this.$message.success("提交成功");
+                    this.reload();
                 } else {
                     this.$message.error("提交失败");
                 }
