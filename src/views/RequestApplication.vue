@@ -1,18 +1,18 @@
 <template>
     <div style="margin-bottom: 30px; text-align: left">
-        <span style="font-size: 30px">发起申请</span>
+        <span style="font-size: 30px">申请审批</span>
     </div>
     <div class="demo-collapse">
         <el-collapse accordion>
-            <el-collapse-item title="人资申请" name="1">
+            <el-collapse-item title="人资申请审批审批" name="1">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
                     </el-icon>
                     <el-button type="text" @click="dialogstaffVisible = true"
-                        >人力资源申请</el-button
+                        >人力资源申请审批审批</el-button
                     >
-                    <!-- 人力资源申请表单 -->
+                    <!-- 人力资源申请审批审批表单 -->
                     <el-dialog v-model="dialogstaffVisible" width="1000px">
                         <iframe
                             src="http://localhost:8080/stafflApply"
@@ -23,15 +23,15 @@
                     </el-dialog>
                 </div>
             </el-collapse-item>
-            <el-collapse-item title="招聘申请" name="2">
+            <el-collapse-item title="招聘申请审批审批" name="2">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
                     </el-icon>
                     <el-button type="text" @click="dialogAnnualVisible = true"
-                        >招聘人员申请</el-button
+                        >招聘人员申请审批审批</el-button
                     >
-                    <!-- 招聘人员申请表单 -->
+                    <!-- 招聘人员申请审批审批表单 -->
                     <el-dialog v-model="dialogAnnualVisible" width="1000px">
                         <iframe
                             src="http://localhost:8080/AnnualApply"
@@ -42,7 +42,7 @@
                     </el-dialog>
                 </div>
             </el-collapse-item>
-            <el-collapse-item title="离职申请" name="3">
+            <el-collapse-item title="离职申请审批审批" name="3">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
@@ -50,14 +50,10 @@
                     <el-button
                         type="text"
                         @click="dialogDepartureVisible = true"
-                        >离职申请</el-button
+                        >离职申请审批审批</el-button
                     >
-                    <!-- 离职申请表单 -->
-                    <el-dialog
-                        title="离职申请"
-                        v-model="dialogDepartureVisible"
-                        width="1000px"
-                    >
+                    <!-- 离职申请审批审批表单 -->
+                    <el-dialog v-model="dialogDepartureVisible" width="1000px">
                         <iframe
                             src="http://localhost:8080/DepartureApply"
                             width="950px"
@@ -67,19 +63,19 @@
                     </el-dialog>
                 </div>
             </el-collapse-item>
-            <el-collapse-item title="请假申请" name="4">
+            <el-collapse-item title="请假申请审批审批" name="4">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
                     </el-icon>
                     <el-button type="text" @click="dialogLeaveVisible = true"
-                        >请假申请</el-button
+                        >请假申请审批审批</el-button
                     >
-                    <!-- 请假申请表单 -->
+                    <!-- 请假申请审批审批表单 -->
                     <el-dialog
-                        title="请假申请"
+                        title="请假申请审批审批"
                         v-model="dialogLeaveVisible"
-                        width="1000px"
+                        width="950px"
                     >
                         <iframe
                             src="http://localhost:8080/LeaveApply"
@@ -90,13 +86,13 @@
                     </el-dialog>
                 </div>
             </el-collapse-item>
-            <el-collapse-item title="录用申请" name="5">
+            <el-collapse-item title="录用申请审批审批" name="5">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
                     </el-icon>
                     <el-button type="text" @click="dialogluyongVisible = true"
-                        >录用人员申请</el-button
+                        >录用人员申请审批审批</el-button
                     >
                     <!-- 录用员工表单 -->
                     <el-dialog
@@ -105,9 +101,9 @@
                         width="1000px"
                     >
                         <iframe
-                            src="http://localhost:8080/EmployApply"
+                            src="http://localhost:8080/Employ"
                             width="950px"
-                            height="570px"
+                            height="450px"
                             frameborder="0"
                         ></iframe>
                     </el-dialog>
