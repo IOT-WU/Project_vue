@@ -7,6 +7,10 @@ import EmployApply from '../views/EmployApply.vue'//录用申请
 import AnnualApply from '../views/AnnualApply.vue'//招聘人员申请
 import DepartureApply from '../views/DepartureApply.vue'//离职申请
 import stafflApply from '../views/stafflApply.vue'//人力资源申请
+import Purchase from '../views/Purchase.vue'//固定资产购置申请
+import Acceptance from '../views/Acceptance.vue'//固定资产验收
+import Borrow from '../views/Borrow.vue'//固定借用
+import Hondaver from '../views/Hondaver.vue'//固定交接
 import Insurance from '../views/Insurance.vue'//车辆保险
 import repair from '../views/repair.vue'//车辆保养
 import maintain from '../views/maintain.vue'//车辆维修
@@ -37,6 +41,7 @@ import ReservationProcurement from '../views/ReservationProcurement.vue'//日常
 import Procurement from '../views/Procurement.vue'//日常用品采购清单
 import Maintenancemanagement from '../views/Maintenancemanagement.vue'//维护管理页面
 
+import Fixedassets from '../views/Fixedassets.vue'//固定资产
 const routes = [
     {
         path: '/',
@@ -89,6 +94,25 @@ const routes = [
         component: stafflApply
     },
     {
+        path: '/Purchase',
+        name: 'Purchase',
+        component: Purchase
+    },
+    {
+        path: '/Borrow',
+        name: 'Borrow',
+        component: Borrow
+    },
+    {
+        path: '/Hondaver',
+        name: 'Hondaver',
+        component: Hondaver
+    },
+    {
+        path: '/Acceptance',
+        name: 'Acceptance',
+        component: Acceptance
+    }, {
         path: '/chapterApply',
         name: 'chapterApply',
         component: chapterApply
@@ -154,10 +178,22 @@ const routes = [
         component: Menu,
         children: [
             {
+                //固定资产
+                path: '/Fixedassets',
+                name: 'Fixedassets',
+                component: Fixedassets
+            },
+            {
                 //发起申请页面
                 path: '/LaunchApplication',
                 name: 'LaunchApplication',
                 component: LaunchApplication
+            },
+            {
+                //资产申请页面
+                path: '/AssetsApply',
+                name: 'AssetsApply',
+                component: AssetsApply
             },
             {
                 //已处理申请
