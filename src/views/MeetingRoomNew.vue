@@ -342,6 +342,9 @@ export default {
         };
     },
     methods: {
+        AnnualApply() {
+                this.dialogMeetingRoomNewVisible = true;
+            },
         Add() {
             this.$axios({
                 url: "http://localhost:7438/api/MeetingRoomNewAdd",

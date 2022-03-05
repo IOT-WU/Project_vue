@@ -40,6 +40,7 @@ import ReservationMeetingRoom from '../views/ReservationMeetingRoom.vue'//会议
 import ReservationProcurement from '../views/ReservationProcurement.vue'//日常用品管理表单(以列表的形式展示)
 import Procurement from '../views/Procurement.vue'//日常用品采购清单
 import Maintenancemanagement from '../views/Maintenancemanagement.vue'//维护管理页面
+import MeetingnewApply from '../views/MeetingnewApply.vue'//会议新增页面
 
 import Fixedassets from '../views/Fixedassets.vue'//固定资产
 const routes = [
@@ -266,6 +267,12 @@ const routes = [
                 path: '/Maintenancemanagement',
                 name: 'Maintenancemanagement',
                 component: Maintenancemanagement
+            },
+            {
+                //会议新增
+                path: '/MeetingnewApply',
+                name: 'MeetingnewApply',
+                component: MeetingnewApply
             },
         ]
     },
