@@ -72,8 +72,8 @@
                             <el-menu-item index="2-2" @click="Goto('AssetsaddApply')"
                                 >资产添加</el-menu-item
                             >
-                            <el-menu-item index="2-3" @click="Goto('')"
-                                >会议添加</el-menu-item
+                            <el-menu-item index="2-3" @click="Goto('MeetingnewApply')"
+                                >会议新增</el-menu-item
                             >
                         </el-sub-menu>
                         <el-sub-menu index="3">
