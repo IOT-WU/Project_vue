@@ -7,6 +7,11 @@ import EmployApply from '../views/EmployApply.vue'//录用申请
 import AnnualApply from '../views/AnnualApply.vue'//招聘人员申请
 import DepartureApply from '../views/DepartureApply.vue'//离职申请
 import stafflApply from '../views/stafflApply.vue'//人力资源申请
+import procurement from '../views/procurement.vue'//日常采购申请单
+import Reception from '../views/Reception.vue'//接待申请
+import MeetingRoomNew from '../views/MeetingRoomNew.vue'//会议室新增
+import ReservationMeetingRoom from '../views/ReservationMeetingRoom.vue'//会议室预定
+import ReservationProcurement from '../views/ReservationProcurement.vue'//日常采购管理
 
 import LaunchApplication from '../views/LaunchApplication.vue'//申请子菜单
 import ProcessedApplication from '../views/ProcessedApplication.vue'//已处理申请
@@ -14,12 +19,43 @@ import PendingApplication from '../views/PendingApplication.vue'//待处理申�
 import EndApplication from '../views/EndApplication.vue'//已完成申请
 import MyApplication from '../views/MyApplication.vue'//我的申请
 import AssetsApply from '../views/AssetsApply.vue'//资产申请
+import About from '../views/About.vue'
 
 const routes = [
     {
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/About',
+        name: 'About',
+        component: About
+    },
+    {
+        path: '/ReservationProcurement',
+        name: 'ReservationProcurement',
+        component: ReservationProcurement
+    },
+    {
+        path: '/procurement',
+        name: 'procurement',
+        component: procurement
+    },
+    {
+        path: '/Reception',
+        name: 'Reception',
+        component: Reception
+    },
+    {
+        path: '/MeetingRoomNew',
+        name: 'MeetingRoomNew',
+        component: MeetingRoomNew
+    },
+    {
+        path: '/ReservationMeetingRoom',
+        name: 'ReservationMeetingRoom',
+        component: ReservationMeetingRoom
     },
     {
         path: '/LeaveApply',

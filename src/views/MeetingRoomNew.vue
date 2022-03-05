@@ -108,7 +108,10 @@
             空调
           </td>
           <td width="225">
-            <el-select v-model="MeetingRoomNew.MeetingRoom_OrAirConditioner" placeholder="请选择">
+            <el-select
+              v-model="MeetingRoomNew.MeetingRoom_OrAirConditioner"
+              placeholder="请选择"
+            >
               <el-option label="有" value="有">有</el-option>
               <el-option label="无" value="无">无</el-option>
             </el-select>
@@ -117,7 +120,10 @@
             投影仪
           </td>
           <td width="225">
-            <el-select v-model="MeetingRoomNew.MeetingRoom_OrProjector" placeholder="请选择">
+            <el-select
+              v-model="MeetingRoomNew.MeetingRoom_OrProjector"
+              placeholder="请选择"
+            >
               <el-option label="有" value="有">有</el-option>
               <el-option label="无" value="无">无</el-option>
             </el-select>
@@ -128,7 +134,10 @@
             白板
           </td>
           <td width="225">
-            <el-select v-model="MeetingRoomNew.MeetingRoom_OrWhiteboard" placeholder="请选择">
+            <el-select
+              v-model="MeetingRoomNew.MeetingRoom_OrWhiteboard"
+              placeholder="请选择"
+            >
               <el-option label="有" value="有">有</el-option>
               <el-option label="无" value="无">无</el-option>
             </el-select>
@@ -137,7 +146,10 @@
             网络
           </td>
           <td width="225">
-            <el-select v-model="MeetingRoomNew.MeetingRoom_OrNetwork" placeholder="请选择">
+            <el-select
+              v-model="MeetingRoomNew.MeetingRoom_OrNetwork"
+              placeholder="请选择"
+            >
               <el-option label="有" value="有">有</el-option>
               <el-option label="无" value="无">无</el-option>
             </el-select>
@@ -148,7 +160,10 @@
             网络范围
           </td>
           <td width="225">
-            <el-select v-model="MeetingRoomNew.MeetingRoom_OrNetworkRange" placeholder="请选择">
+            <el-select
+              v-model="MeetingRoomNew.MeetingRoom_OrNetworkRange"
+              placeholder="请选择"
+            >
               <el-option label="有" value="有">有</el-option>
               <el-option label="无" value="无">无</el-option>
             </el-select>
@@ -157,7 +172,10 @@
             饮水机
           </td>
           <td width="225">
-            <el-select v-model="MeetingRoomNew.MeetingRoom_OrWaterDispenser" placeholder="请选择">
+            <el-select
+              v-model="MeetingRoomNew.MeetingRoom_OrWaterDispenser"
+              placeholder="请选择"
+            >
               <el-option label="有" value="有">有</el-option>
               <el-option label="无" value="无">无</el-option>
             </el-select>
@@ -190,21 +208,15 @@
             照片
           </td>
           <td width="225" colspan="3">
-            <input
-              type="text"
-              v-model="MeetingRoomNew.MeetingRoom_Image"
-              style="
-                outline-color: invert;
-                outline-style: none;
-                outline-width: 0px;
-                border: none;
-                border-style: none;
-                text-shadow: none;
-                -webkit-appearance: none;
-                outline-color: transparent;
-                box-shadow: none;
-              "
-            />
+            <el-upload
+              action="http://localhost:7438/Img/Upload"
+              list-type="picture-card"
+              :on-preview="handlePictureCardPreview"
+              :on-remove="handleRemove"
+              :on-success="handSuccess"
+            >
+              <el-icon><plus /></el-icon>
+            </el-upload>
           </td>
         </tr>
         <tr>
@@ -232,20 +244,23 @@
       </table>
       <div style="width: 900px" align="center">
         <div align="left">
-          <input type="button" @click="Add" value="提交" />
-          <button type="info" style="float: left">存为草稿</button>
-          <button type="info" style="float: left">存为范本</button>
-          <button type="info" style="float: left">启用阅示</button>
+          <button type="info" @click="Add" style="float: left">提交</button>
         </div>
       </div>
-  </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { Plus } from "@element-plus/icons-vue";
 export default {
+  components: {
+    Plus,
+  },
   data() {
     return {
+      dialogImageUrl: "",
+      dialogImgVisible: false,
       MeetingRoomNew: {
         MeetingRoom_Name: "",
         MeetingRoom_Seat: "",
@@ -254,32 +269,38 @@ export default {
         MeetingRoom_OrAirConditioner: "",
         MeetingRoom_OrProjector: "",
         MeetingRoom_OrWhiteboard: "",
-        MeetingRoom_OrNetwork:"",
-        MeetingRoom_OrNetworkRange:"",
-        MeetingRoom_OrWaterDispenser:"",
-        MeetingRoom_Administrator:"",
-        MeetingRoom_Image:"",
-        MeetingRoom_Note:""
-      }
+        MeetingRoom_OrNetwork: "",
+        MeetingRoom_OrNetworkRange: "",
+        MeetingRoom_OrWaterDispenser: "",
+        MeetingRoom_Administrator: "",
+        MeetingRoom_Image: "",
+        MeetingRoom_Note: "",
+      },
     };
   },
   methods: {
-    Add(){
+    Add() {
       this.$axios({
-        url:"http://localhost:7438/api/MeetingRoomNewAdd",
-        method:"post",
-        data:this.MeetingRoomNew
-      }).then((res)=>{
-        if(res.data>0)
-        {
+        url: "http://localhost:7438/api/MeetingRoomNewAdd",
+        method: "post",
+        data: this.MeetingRoomNew,
+      }).then((res) => {
+        if (res.data > 0) {
           alert("提交成功");
-        }
-        else
-        {
+        } else {
           alert("提交失败");
         }
-      })
-    }
+      });
+    },
+    //图片删除
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    //上传成功后调用
+    handSuccess(response, file, fileList) {
+      this.MeetingRoomNew.MeetingRoom_Image = response;
+    },
+    //-----
   },
 };
 </script>

@@ -158,8 +158,7 @@
       </table>
       <div style="width: 900px" align="center">
         <div align="left">
-          <input type="button" @click="Add" value="提交" />
-          <button type="info" style="float: left">存为草稿</button>
+          <button type="info"  @click="Add" style="float: left">提交</button>
           <button type="info" style="float: left">存为范本</button>
           <button type="info" style="float: left">启用阅示</button>
         </div>

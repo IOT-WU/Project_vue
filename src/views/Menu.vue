@@ -72,6 +72,9 @@
                             <el-menu-item index="2-2" @click="Goto('')"
                                 >资产添加</el-menu-item
                             >
+                            <el-menu-item index="2-3" @click="Goto('')"
+                                >会议添加</el-menu-item
+                            >
                         </el-sub-menu>
                         <el-sub-menu index="3">
                             <template #title> 其他管理 </template>

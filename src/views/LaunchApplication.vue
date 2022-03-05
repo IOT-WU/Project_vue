@@ -113,6 +113,52 @@
                     </el-dialog>
                 </div>
             </el-collapse-item>
+            <el-collapse-item title="日常用品采购申请" name="6">
+                <div style="text-align: left; margin-left: 50px">
+                    <el-icon>
+                        <edit />
+                    </el-icon>
+                    <el-button type="text" @click="dialogProcurementVisible = true"
+                        >日常用品采购申请</el-button
+                    >
+                    <!-- 日常用品采购申请表单 -->
+                    <el-dialog
+                        title="日常用品采购申请"
+                        v-model="dialogProcurementVisible"
+                        width="1000px"
+                    >
+                        <iframe
+                            src="http://localhost:8080/procurement"
+                            width="950px"
+                            height="380px"
+                            frameborder="0"
+                        ></iframe>
+                    </el-dialog>
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="接待申请" name="7">
+                <div style="text-align: left; margin-left: 50px">
+                    <el-icon>
+                        <edit />
+                    </el-icon>
+                    <el-button type="text" @click="dialogReceptionVisible = true"
+                        >接待申请</el-button
+                    >
+                    <!-- 接待申请表单 -->
+                    <el-dialog
+                        title="接待申请"
+                        v-model="dialogReceptionVisible"
+                        width="1000px"
+                    >
+                        <iframe
+                            src="http://localhost:8080/Reception"
+                            width="950px"
+                            height="380px"
+                            frameborder="0"
+                        ></iframe>
+                    </el-dialog>
+                </div>
+            </el-collapse-item>
         </el-collapse>
     </div>
 </template>
@@ -131,6 +177,9 @@ export default {
             dialogDepartureVisible: false, //离职表单
             dialogAnnualVisible: false, //招聘表单
             dialogstaffVisible: false, //人力资源表单
+            dialogProcurementVisible: false, //日常用品采购
+            dialogReceptionVisible: false, //接待表单
+
         };
     },
     mounted() {},
