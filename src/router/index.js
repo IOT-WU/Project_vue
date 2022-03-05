@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import About from '../views/About.vue'
 import Menu from '../views/Menu.vue'//菜单
 import Login from '../views/Login.vue'//登录
 import LeaveApply from '../views/LeaveApply.vue'//请假申请
@@ -49,6 +50,36 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/About',
+        name: 'About',
+        component: About
+    },
+    {
+        path: '/ReservationProcurement',
+        name: 'ReservationProcurement',
+        component: ReservationProcurement
+    },
+    {
+        path: '/Procurement',
+        name: 'Procurement',
+        component: Procurement
+    },
+    {
+        path: '/Reception',
+        name: 'Reception',
+        component: Reception
+    },
+    {
+        path: '/MeetingRoomNew',
+        name: 'MeetingRoomNew',
+        component: MeetingRoomNew
+    },
+    {
+        path: '/ReservationMeetingRoom',
+        name: 'ReservationMeetingRoom',
+        component: ReservationMeetingRoom
     },
     {
         path: '/LeaveApply',
@@ -163,16 +194,6 @@ const routes = [
         path: '/ReservationMeetingRoom',
         name: 'ReservationMeetingRoom',
         component: ReservationMeetingRoom
-    },
-    {
-        path: '/ReservationProcurement',
-        name: 'ReservationProcurement',
-        component: ReservationProcurement
-    },
-    {
-        path: '/Procurement',
-        name: 'Procurement',
-        component: Procurement
     },
     {
         path: '/Menu',
