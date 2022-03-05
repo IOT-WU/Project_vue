@@ -1,17 +1,17 @@
 <template>
-    <div class=".BodyDiv">
+    <div>
         <table
             border="1px"
             ref="leaveformRef"
             :model="leaveform"
             bordercolor="#E4E7ED"
-            width="950px"
+            width="900px"
             cellpadding="5"
             cellspacing="0"
         >
             <tr>
                 <td colspan="4">
-                    <h2 style="text-align: center">请假审批表</h2>
+                    <h2 style="text-align: center">请假申请审批表</h2>
                 </td>
             </tr>
             <tr>
@@ -21,27 +21,70 @@
             </tr>
             <tr>
                 <td align="left" width="225" style="background-color: #f6f5f4">
-                    申请人
+                    申请审批人
                 </td>
                 <td width="225">
-                    <input type="text" v-model="leaveform.leave_Proposer" />
+                    <input
+                        disabled="disabled"
+                        type="text"
+                        v-model="leaveform.leave_Proposer"
+                        style="
+                            outline-color: invert;
+                            outline-style: none;
+                            outline-width: 0px;
+                            border: none;
+                            border-style: none;
+                            text-shadow: none;
+                            -webkit-appearance: none;
+                            outline-color: transparent;
+                            box-shadow: none;
+                        "
+                    />
                 </td>
                 <td align="left" width="225" style="background-color: #f6f5f4">
-                    申请部门
+                    申请审批部门
                 </td>
                 <td width="225">
-                    <input type="text" v-model="leaveform.leave_Demo" />
+                    <input
+                        disabled="disabled"
+                        type="text"
+                        v-model="leaveform.leave_Demo"
+                        style="
+                            outline-color: invert;
+                            outline-style: none;
+                            outline-width: 0px;
+                            border: none;
+                            border-style: none;
+                            text-shadow: none;
+                            -webkit-appearance: none;
+                            outline-color: transparent;
+                            box-shadow: none;
+                        "
+                    />
                 </td>
             </tr>
             <tr>
                 <td align="left" width="225" style="background-color: #f6f5f4">
-                    申请时间
+                    申请审批时间
                 </td>
                 <td width="225">
                     <input
+                        disabled="disabled"
                         type="datetime-local"
                         v-model="leaveform.leave_Time"
                         placeholder="选择日期"
+                        style="
+                            outline-color: invert;
+                            outline-style: none;
+                            outline-width: 0px;
+                            border: none;
+                            border-style: none;
+                            text-shadow: none;
+                            -webkit-appearance: none;
+                            outline-color: transparent;
+                            box-shadow: none;
+                            width: 100%;
+                        "
                     />
                 </td>
                 <td
@@ -86,9 +129,22 @@
                 </td>
                 <td width="225">
                     <input
+                        disabled="disabled"
                         type="datetime-local"
                         v-model="leaveform.leave_StartDate"
                         placeholder="选择日期"
+                        style="
+                            outline-color: invert;
+                            outline-style: none;
+                            outline-width: 0px;
+                            border: none;
+                            border-style: none;
+                            text-shadow: none;
+                            -webkit-appearance: none;
+                            outline-color: transparent;
+                            box-shadow: none;
+                            width: 100%;
+                        "
                     />
                 </td>
             </tr>
@@ -98,10 +154,23 @@
                 </td>
                 <td width="225">
                     <input
+                        disabled="disabled"
                         type="datetime-local"
                         @change="DateDiff"
                         v-model="leaveform.leave_EndDate"
                         placeholder="选择日期"
+                        style="
+                            outline-color: invert;
+                            outline-style: none;
+                            outline-width: 0px;
+                            border: none;
+                            border-style: none;
+                            text-shadow: none;
+                            -webkit-appearance: none;
+                            outline-color: transparent;
+                            box-shadow: none;
+                            width: 100%;
+                        "
                     />
                 </td>
                 <td align="left" width="225" style="background-color: #f6f5f4">
@@ -109,9 +178,20 @@
                 </td>
                 <td width="225">
                     <input
-                        type="text"
                         disabled="disabled"
+                        type="text"
                         v-model="leaveform.leave_Day"
+                        style="
+                            outline-color: invert;
+                            outline-style: none;
+                            outline-width: 0px;
+                            border: none;
+                            border-style: none;
+                            text-shadow: none;
+                            -webkit-appearance: none;
+                            outline-color: transparent;
+                            box-shadow: none;
+                        "
                     />
                 </td>
             </tr>
@@ -123,6 +203,17 @@
                     <textarea
                         cols="100"
                         v-model="leaveform.leave_Reason"
+                        style="
+                            outline-color: invert;
+                            outline-style: none;
+                            outline-width: 0px;
+                            border: none;
+                            border-style: none;
+                            text-shadow: none;
+                            -webkit-appearance: none;
+                            outline-color: transparent;
+                            box-shadow: none;
+                        "
                     ></textarea>
                 </td>
             </tr>
@@ -132,7 +223,6 @@
                 </td>
                 <td width="225" colspan="3">
                     <el-upload
-                        style="float: left"
                         action="https://jsonplaceholder.typicode.com/posts/"
                     >
                         <el-button type="success" size="mini"
@@ -151,34 +241,37 @@
                     <textarea
                         cols="120"
                         v-model="leaveform.leave_Remark"
+                        style="
+                            outline-color: invert;
+                            outline-style: none;
+                            outline-width: 0px;
+                            border: none;
+                            border-style: none;
+                            text-shadow: none;
+                            -webkit-appearance: none;
+                            outline-color: transparent;
+                            box-shadow: none;
+                        "
                     ></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="4">
-                    <div style="height: 21px">
-                        <button
-                            type="info"
-                            style="float: left"
-                            @click="AddLeaveApply"
-                        >
-                            提交
-                        </button>
-                    </div>
                 </td>
             </tr>
         </table>
     </div>
 </template>
 
+
 <script>
+import { Edit } from "@element-plus/icons-vue";
 export default {
-    inject: ["reload"],
+    components: {
+        Edit,
+    },
     data() {
         return {
             baseUrl: "http://localhost:7438/api/",
+            action: "提交", //申请审批分支名称
             leaveType: [],
-            //请假申请数据
+            //请假申请审批数据
             bpmLeave: {
                 action: "提交",
                 bpmUser: window.sessionStorage["account"],
@@ -199,27 +292,10 @@ export default {
                 leave_AffixName: "",
                 leave_Remark: "",
             },
-            //-----
         };
     },
     mounted() {
-        this.leaveform = {
-            leave_Proposer: "",
-            leave_Demo: "",
-            leave_Time: "",
-            leave_LeaveType: "",
-            leave_StartDate: "",
-            leave_EndDate: "",
-            leave_Day: 0,
-            leave_Reason: "",
-            leave_AffixName: "",
-            leave_Remark: "",
-        };
         this.GetLeaveType();
-        if (window.sessionStorage["taskId"] != "") {
-            this.findLeave(window.sessionStorage["taskId"]);
-            window.sessionStorage.removeItem("taskId");
-        }
     },
     methods: {
         //获取请假类型
@@ -231,32 +307,12 @@ export default {
                 this.leaveType = res.data;
             });
         },
-        //计算请假天数
-        DateDiff() {
-            if (this.leaveform.leave_EndDate == "") {
-                return;
-            }
-            if (this.leaveform.leave_EndDate < this.leaveform.leave_StartDate) {
-                this.$message.warning("结束时间小于开始时间，请重新选择");
-                this.leaveform.leave_EndDate = "";
-                return;
-            }
-            console.log(this.leaveform.leave_EndDate.slice(0, 10));
-            console.log(this.leaveform.leave_StartDate.slice(0, 10));
-            //sDate1和sDate2是yyyy-MM-dd格式
-            var aDate, oDate1, oDate2, iDays;
-            aDate = this.leaveform.leave_StartDate.slice(0, 10).split("-");
-            oDate1 = new Date(aDate[1] + "-" + aDate[2] + "-" + aDate[0]); //转换为yyyy-MM-dd格式
-            aDate = this.leaveform.leave_EndDate.slice(0, 10).split("-");
-            oDate2 = new Date(aDate[1] + "-" + aDate[2] + "-" + aDate[0]);
-            iDays = Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24; //把相差的毫秒数转换为天数
-            iDays = iDays.toFixed(0); //天数保留两位小数
-            this.leaveform.leave_Day = iDays;
-            console.log(this.leaveform);
+        //请假申请审批
+        LeaveApply() {
+            this.dialogLeaveVisible = true;
         },
         //发起请假流程
         AddLeaveApply() {
-            console.log(this.leaveform);
             this.bpmLeave.leaveData = JSON.stringify(this.leaveform);
             this.$axios({
                 url: this.baseUrl + "startleave",
@@ -266,23 +322,13 @@ export default {
                 console.log(res);
                 if (res.data == "") {
                     this.$message.success("提交成功");
-                    this.reload();
                 } else {
                     this.$message.error("提交失败");
                 }
+                this.dialogLeaveVisible = false;
             });
         },
-        //请假申请反填
-        findLeave(id) {
-            this.$axios({
-                url: this.baseUrl + "findleave?id=" + id,
-                method: "get",
-            }).then((res) => {
-                console.log(res.data);
-                this.leaveform = res.data;
-            });
-        },
-        //-----
+        //------
     },
 };
 </script>
@@ -298,7 +344,6 @@ input {
     -webkit-appearance: none;
     outline-color: transparent;
     box-shadow: none;
-    width: 100%;
 }
 textarea {
     outline-color: invert;
@@ -310,6 +355,5 @@ textarea {
     -webkit-appearance: none;
     outline-color: transparent;
     box-shadow: none;
-    width: 100%;
 }
 </style>

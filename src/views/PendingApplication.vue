@@ -160,8 +160,7 @@ export default {
         },
         //同意
         Agree() {
-            if(this.Comments=="")
-            {
+            if (this.Comments == "") {
                 this.$message.warning("请输入审批建议");
                 return;
             }
@@ -183,8 +182,7 @@ export default {
         },
         //拒绝
         Reject() {
-            if(this.Comments=="")
-            {
+            if (this.Comments == "") {
                 this.$message.warning("请输入审批建议");
                 return;
             }
@@ -205,8 +203,7 @@ export default {
         },
         //驳回
         RecedeRestart1() {
-            if(this.Comments=="")
-            {
+            if (this.Comments == "") {
                 this.$message.warning("请输入审批建议");
                 return;
             }

@@ -24,8 +24,25 @@
             会议室
           </td>
           <td width="225">
-            <select v-model="ReservationMeetingRoom.Reservation_MeetingRoom" placeholder="请选择" style="width:100%;height:100%;border:0;background:transparent;outline:none;">
-              <option v-for="item in meetingroom" :key="item.meetingRoomId" :label="item.meetingRoomName" :value="item.meetingRoomId">{{item.meetingRoomName}}</option>
+            <select
+              v-model="ReservationMeetingRoom.Reservation_MeetingRoom"
+              placeholder="请选择"
+              style="
+                width: 100%;
+                height: 100%;
+                border: 0;
+                background: transparent;
+                outline: none;
+              "
+            >
+              <option
+                v-for="item in meetingroom"
+                :key="item.meetingRoomId"
+                :label="item.meetingRoomName"
+                :value="item.meetingRoomId"
+              >
+                {{ item.meetingRoomName }}
+              </option>
             </select>
           </td>
           <td align="left" width="225" style="background-color: #f6f5f4">
@@ -158,12 +175,12 @@
       </table>
       <div style="width: 900px" align="center">
         <div align="left">
-          <button type="info"  @click="Add" style="float: left">提交</button>
+          <button type="info" @click="Add" style="float: left">提交</button>
           <button type="info" style="float: left">存为范本</button>
           <button type="info" style="float: left">启用阅示</button>
         </div>
       </div>
-  </div>
+    </div>
   </div>
 </template>
 
@@ -178,39 +195,36 @@ export default {
         Reservation_Users: "",
         Reservation_Reason: "",
         Reservation_BeginTime: "",
-        Reservation_OverTime: ""
+        Reservation_OverTime: "",
       },
-      meetingroom:[]
+      meetingroom: [],
     };
   },
-  created(){
-      this.show();
+  created() {
+    this.show();
   },
   methods: {
-    Add(){
+    Add() {
       this.$axios({
-        url:"http://localhost:7438/api/ReservationMeetingRoomAdd",
-        method:"post",
-        data:this.ReservationMeetingRoom
-      }).then((res)=>{
-        if(res.data>0)
-        {
+        url: "http://localhost:7438/api/ReservationMeetingRoomAdd",
+        method: "post",
+        data: this.ReservationMeetingRoom,
+      }).then((res) => {
+        if (res.data > 0) {
           alert("提交成功");
-        }
-        else
-        {
+        } else {
           alert("提交失败");
         }
-      })
+      });
     },
-    show(){
-        this.$axios({
-            url:"http://localhost:7438/api/GetMeetingRoom",
-            method:"get"
-        }).then((res)=>{
-            this.meetingroom = res.data;
-        })
-    }
+    show() {
+      this.$axios({
+        url: "http://localhost:7438/api/GetMeetingRoom",
+        method: "get",
+      }).then((res) => {
+        this.meetingroom = res.data;
+      });
+    },
   },
 };
 </script>

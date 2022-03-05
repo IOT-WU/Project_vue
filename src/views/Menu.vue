@@ -69,7 +69,7 @@
                                 @click="Goto('AssetsApply')"
                                 >资产申请</el-menu-item
                             >
-                            <el-menu-item index="2-2" @click="Goto('')"
+                            <el-menu-item index="2-2" @click="Goto('AssetsaddApply')"
                                 >资产添加</el-menu-item
                             >
                             <el-menu-item index="2-3" @click="Goto('')"
@@ -78,13 +78,13 @@
                         </el-sub-menu>
                         <el-sub-menu index="3">
                             <template #title> 其他管理 </template>
-                            <el-menu-item index="3-1" @click="Goto('')"
+                            <el-menu-item index="3-1" @click="Goto('Announcementmanagement')"
                                 >公告管理</el-menu-item
                             >
                             <el-menu-item index="3-2" @click="Goto('')"
                                 >年假管理</el-menu-item
                             >
-                            <el-menu-item index="3-2" @click="Goto('')"
+                            <el-menu-item index="3-3" @click="Goto('Maintenancemanagement')"
                                 >维护管理</el-menu-item
                             >
                         </el-sub-menu>
