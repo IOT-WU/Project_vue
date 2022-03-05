@@ -227,16 +227,6 @@
             <div style="width: 900px" align="center">
                 <div align="left">
                     <button @click="AddDeparture">提交</button>
-                    <button type="info" style="float: left">存为草稿</button>
-                    <button type="info" style="float: left">存为范本</button>
-                    <button type="info" style="float: left">启用阅示</button>
-                    <br />
-                    <button type="info" style="float: left">序号</button>
-                    <button type="info" style="float: left">处理步骤</button>
-                    <button type="info" style="float: left">签名</button>
-                    <button type="info" style="float: left">操作</button>
-                    <button type="info" style="float: left">日期</button>
-                    <button type="info" style="float: left">备注</button>
                 </div>
             </div>
         </div>
@@ -310,7 +300,6 @@ export default {
                 this.dialogDepartureVisible = false;
             });
         },
-
         //离职申请反填
         findDeparture(id) {
             this.$axios({

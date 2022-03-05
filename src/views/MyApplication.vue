@@ -68,7 +68,7 @@ export default {
         //获取表单路径
         GetUrl(row) {
             this.BaseModel.processName = row.processName;
-            window.sessionStorage["taskId"] = row.taskId;
+            window.sessionStorage["taskId"] = row.taskID;
 
             this.$axios({
                 url: this.baseUrl + "GetUrl",
