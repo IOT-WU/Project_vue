@@ -114,18 +114,18 @@
                 </div>
             </el-collapse-item>
 
-            <el-collapse-item title="离职交接表" name="6">
+            <el-collapse-item title="离职交接申请" name="6">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
                     </el-icon>
                     <el-button type="text" @click="dialogTransferVisible = true"
-                        >离职交接表</el-button
+                        >离职交接申请</el-button
                     >
-                    <!-- 离职交接表 -->
+                    <!-- 离职交接申请 -->
                     <el-dialog
                         v-model="dialogTransferVisible"
-                        title="离职交接表"
+                        title="离职交接申请"
                         width="1000px"
                     >
                         <iframe
@@ -137,18 +137,18 @@
                     </el-dialog>
                 </div>
             </el-collapse-item>
-            <el-collapse-item title="员工离职面谈表" name="7">
+            <el-collapse-item title="员工离职面谈申请" name="7">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
                     </el-icon>
                     <el-button type="text" @click="dialogexitVisible = true"
-                        >员工离职面谈表</el-button
+                        >员工离职面谈申请</el-button
                     >
-                    <!-- 员工离职面谈表 -->
+                    <!-- 员工离职面谈申请 -->
                     <el-dialog
                         v-model="dialogexitVisible"
-                        title="员工离职面谈表"
+                        title="员工离职面谈申请"
                         width="1000px"
                     >
                         <iframe
