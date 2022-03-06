@@ -70,7 +70,7 @@
                     归还日期
                 </td>
                 <td width="225">
-                    <input type="datetime-local" v-model="lBorrowform.borrow_EndData" placeholder="选择日期" style="
+                    <input type="datetime-local" @change="DateDiff" v-model="lBorrowform.borrow_EndData" placeholder="选择日期" style="
                             outline-color: invert;
                             outline-style: none;
                             outline-width: 0px;
@@ -207,9 +207,20 @@
         },
 
         methods: {
+            
             AnnualApply() {
             this.dialogBorrowVisible = true;
         },
+        DateDiff() {
+            if (this.lBorrowform.borrow_EndData == "") {
+                return;
+            }
+              if(this.lBorrowform.borrow_EndData<this.lBorrowform.borrow_Data){
+                  alert('归还日期不能小于申请日期');
+                  this.lBorrowform.borrow_EndData = "";
+                return;
+              }
+            },
             BorrowdAdd() {
                 this.bpmBorrow.planData = JSON.stringify(this.lBorrowform);
                 console.log(this.bpmBorrow)

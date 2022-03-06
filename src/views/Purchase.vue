@@ -1,8 +1,8 @@
 <template>
-   
+
     <div>
-        <table border="1px" ref="leaveformRef" :model="Purchaseform" bordercolor="#E4E7ED"
-            width="00px" cellpadding="5" cellspacing="0">
+        <table border="1px" ref="leaveformRef" :model="Purchaseform" bordercolor="#E4E7ED" width="00px" cellpadding="5"
+            cellspacing="0">
             <tr>
                 <td colspan="4">
                     <h2 style="text-align: center">
@@ -54,8 +54,7 @@
                     申请时间
                 </td>
                 <td width="225">
-                    <input type="datetime-local" v-model="Purchaseform.assets_Data" placeholder="选择日期"
-                        style="
+                    <input type="datetime-local" v-model="Purchaseform.assets_Data" placeholder="选择日期" style="
                             outline-color: invert;
                             outline-style: none;
                             outline-width: 0px;
@@ -181,7 +180,7 @@
                         "></textarea>
                 </td>
             </tr>
-           
+
             <tr>
                 <td align="left" colspan="4" style="background-color: #daecf7">
                     备注
@@ -218,41 +217,64 @@
 
 </template>
 <script>
-import { Edit } from "@element-plus/icons-vue";
-export default {
-    components: {
-        Edit,
-    },
-    data() {
-        return {
-            bpmPurchase: {
-                action: "提交",
-                bpmUser: window.sessionStorage["account"],
-                bpmUserPass: window.sessionStorage["password"],
-                fullName: window.sessionStorage["account"],
-                processName: "固定资产申请",
-                planData: "",
-            },
-            Purchaseform: {
-                assets_Applicant: "",
-                assets_Department: "",
-                assets_Data: "",
-                assets_Order: "",
-                assets_Name: "",
-                assets_Nodel: "",
-                assets_Configution: "",
-                assets_Not: "",
-                assets_Reason: "",
-                assets_Note: "",
-            },
-        };
-    },
-   
-    methods: {
-            AnnualApply() {
-            this.dialogPurchaseVisible = true;
+    import { Edit } from "@element-plus/icons-vue";
+    export default {
+        components: {
+            Edit,
         },
-        PurchaseAd() {
+        data() {
+            return {
+                bpmPurchase: {
+                    action: "提交",
+                    bpmUser: window.sessionStorage["account"],
+                    bpmUserPass: window.sessionStorage["password"],
+                    fullName: window.sessionStorage["account"],
+                    processName: "固定资产申请",
+                    planData: "",
+                },
+                Purchaseform: {
+                    assets_Applicant: "",
+                    assets_Department: "",
+                    assets_Data: "",
+                    assets_Order: "",
+                    assets_Name: "",
+                    assets_Nodel: "",
+                    assets_Configution: "",
+                    assets_Not: "",
+                    assets_Reason: "",
+                    assets_Note: "",
+                },
+            };
+        },
+        created() {
+            // 调用获取当前日期的方法加四位随机数  赋值表单中的项目编号
+            this.Purchaseform.assets_Order = this.getProjectNum() + Math.floor(Math.random() * 10000)  // 如果是6位或者8位随机数，相应的 *1000000或者 *100000000就行了
+        },
+
+        methods: {
+            AnnualApply() {
+                this.dialogPurchaseVisible = true;
+            },
+            getProjectNum() {
+                const projectTime = new Date() // 当前中国标准时间
+                const Year = projectTime.getFullYear() // 获取当前年份 支持IE和火狐浏览器.
+                const Month = projectTime.getMonth() + 1 // 获取中国区月份
+                const Day = projectTime.getDate() // 获取几号
+                var CurrentDate = Year
+                if (Month >= 10) { // 判断月份和几号是否大于10或者小于10
+                    CurrentDate += Month
+                } else {
+                    CurrentDate += '0' + Month
+                }
+                if (Day >= 10) {
+                    CurrentDate += Day
+                } else {
+                    CurrentDate += '0' + Day
+                }
+                return CurrentDate
+            },
+
+            PurchaseAd() {
                 this.bpmPurchase.planData = JSON.stringify(this.Purchaseform);
                 console.log(this.bpmPurchase)
                 this.$axios({
@@ -269,6 +291,5 @@ export default {
                 })
             }
         },
-};
+    };
 </script>
-

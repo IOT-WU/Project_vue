@@ -86,7 +86,7 @@
                             v-for="item in lib"
                             :key="item.sId"
                             :label="item.roleName"
-                            :value="item.sId"
+                            :value="item.roleName"
                         ></option>
                     </select>
                 </td>
@@ -94,22 +94,17 @@
                     岗位说明
                 </td>
                 <td width="225">
-                    <el-checkbox-group
-                        v-model="employedform.employed_Instruction"
-                    >
+                    <el-checkbox-group v-model="emplInstruction">
                         <el-checkbox
                             label="已设"
-                            name="type"
                             value="已设"
                         ></el-checkbox>
                         <el-checkbox
                             label="新增"
-                            name="type"
                             value="新增"
                         ></el-checkbox>
                         <el-checkbox
                             label="临时"
-                            name="type"
                             value="临时"
                         ></el-checkbox>
                     </el-checkbox-group>
@@ -120,9 +115,20 @@
                     人员类别
                 </td>
                 <el-checkbox-group v-model="employedform.employed_Categary">
-                    <el-checkbox label="员工" value="1"></el-checkbox>
-                    <el-checkbox label="主管" value="1"></el-checkbox>
-                    <el-checkbox label="经理" value="1"></el-checkbox>
+                    
+                        <el-checkbox
+                            label="员工"
+                            value="员工"
+                        ></el-checkbox>
+                        <el-checkbox
+                            label="主管"
+                            value="主管"
+                        ></el-checkbox>
+                        <el-checkbox
+                            label="经理"
+                            value="经理"
+                        ></el-checkbox>
+                   
                 </el-checkbox-group>
             </tr>
         </table>
@@ -347,9 +353,15 @@
                     本人是否有亲属在公司工作
                 </td>
                 <td width="225">
-                    <el-checkbox-group v-model="employedform.employed_Relative">
-                        <el-checkbox label="是" value="1"></el-checkbox>
-                        <el-checkbox label="否" value="1"></el-checkbox>
+                    <el-checkbox-group v-model="emplRelative">
+                        <el-checkbox
+                            label="是"
+                            value="是"
+                        ></el-checkbox>
+                        <el-checkbox
+                            label="否"
+                            value="否"
+                        ></el-checkbox>
                     </el-checkbox-group>
                 </td>
                 <td align="left" width="225" style="background-color: #f6f5f4">
@@ -558,6 +570,8 @@ export default {
                 employed_Timelimit: "", //合同期限
                 employed_Thetrial: "",
             },
+            emplInstruction:[],
+            emplRelative:[],
             BPMData: {
                 action: "提交",
                 bpmUser: window.sessionStorage["account"],
@@ -583,6 +597,8 @@ export default {
     },
     methods: {
         employedAdd() {
+            this.employedform.employed_Instruction = this.emplInstruction.toString();
+            this.employedform.employed_Relative = this.emplRelative.toString();
             this.BPMData.planData = JSON.stringify(this.employedform);
             this.BPMData.planInfoDetail = JSON.stringify(this.folk);
             console.log(this.BPMData);
@@ -593,9 +609,9 @@ export default {
                 data: this.BPMData,
             }).then((res) => {
                 if (red.data == "") {
-                    this.$message("提交成功");
+                   alert('提交成功')
                 } else {
-                    this.$message("提交失败");
+                    alert('提交失败')
                 }
             });
         },

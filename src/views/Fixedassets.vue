@@ -111,6 +111,7 @@ export default {
         return {
             baseUrl: "http://localhost:7438/api/",
             dialogPurchaseVisible: false, //资产申请
+            dialogAcceptanceVisible: false, //资产验收
             dialogHondaverlVisible: false, //资产交接
             dialogBorrowVisible: false, //资产借用
         };
