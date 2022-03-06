@@ -95,7 +95,7 @@
                 </el-aside>
                 <!-- 显示页面 -->
                 <el-main style="width: 100%; height: 100%">
-                    <!-- 占位符-点击加载之后的页面 -->
+                    <!-- 占位符--点击加载之后的页面 -->
                     <router-view />
                 </el-main>
             </el-container>
