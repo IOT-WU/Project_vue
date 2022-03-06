@@ -1,6 +1,12 @@
 <template>
     <div style="margin-bottom: 30px; text-align: left">
         <span style="font-size: 30px">待处理申请</span>
+        <el-button style="float: right" type="succcess" @click="DownExcel"
+            >导出Excel表格</el-button
+        >
+        <el-button style="float: right" type="succcess" @click="DownloadAllExcel"
+            >导出所有流程数据</el-button
+        >
     </div>
     <el-table :data="tableData" style="width: 100%">
         <el-table-column label="流水号">
@@ -110,6 +116,57 @@ export default {
         this.GetPendingApply();
     },
     methods: {
+        //下载导出Excel
+        DownExcel() {
+            this.$axios({
+                url: this.baseUrl + "DownloadExcel",
+                method: "post",
+                data: this.tableData,
+                responseType: "blob",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }).then((res) => {
+                const link = document.createElement("a");
+                let blob = new Blob([res.data], {
+                    type: "application/vnd.ms-excel",
+                });
+                link.style.display = "none";
+                link.href = URL.createObjectURL(blob);
+
+                //link.download = res.headers['content-disposition'] //下载后文件名
+                link.download = "流程导出数据.xlsx"; //下载的文件名
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                console.log(res);
+            });
+        },
+        //下载所有流程导出Excel
+        DownAllExcel() {
+            this.$axios({
+                url: this.baseUrl + "DownloadAllExcel",
+                method: "get",
+                responseType: "blob",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }).then((res) => {
+                const link = document.createElement("a");
+                let blob = new Blob([res.data], {
+                    type: "application/vnd.ms-excel",
+                });
+                link.style.display = "none";
+                link.href = URL.createObjectURL(blob);
+
+                //link.download = res.headers['content-disposition'] //下载后文件名
+                link.download = "所有流程数据.xlsx"; //下载的文件名
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                console.log(res);
+            });
+        },
         //获取表单路径
         GetUrl(row) {
             this.BaseModel.processName = row.processName;
