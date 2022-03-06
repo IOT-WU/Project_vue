@@ -74,6 +74,9 @@
                             >
                             <el-menu-item index="2-3" @click="Goto('Fixedassets')"
                                 >固定资产</el-menu-item
+                                >
+                            <el-menu-item index="2-4" @click="Goto('MeetingnewApply')"
+                                >会议新增</el-menu-item
                             >
                         </el-sub-menu>
                         <el-sub-menu index="3">

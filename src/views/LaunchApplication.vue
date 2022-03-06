@@ -114,18 +114,18 @@
                 </div>
             </el-collapse-item>
 
-            <el-collapse-item title="离职交接表" name="6">
+            <el-collapse-item title="离职交接申请" name="6">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
                     </el-icon>
                     <el-button type="text" @click="dialogTransferVisible = true"
-                        >离职交接表</el-button
+                        >离职交接申请</el-button
                     >
-                    <!-- 离职交接表 -->
+                    <!-- 离职交接申请 -->
                     <el-dialog
                         v-model="dialogTransferVisible"
-                        title="离职交接表"
+                        title="离职交接申请"
                         width="1000px"
                     >
                         <iframe
@@ -137,24 +137,70 @@
                     </el-dialog>
                 </div>
             </el-collapse-item>
-            <el-collapse-item title="员工离职面谈表" name="7">
+            <el-collapse-item title="员工离职面谈申请" name="7">
                 <div style="text-align: left; margin-left: 50px">
                     <el-icon>
                         <edit />
                     </el-icon>
                     <el-button type="text" @click="dialogexitVisible = true"
-                        >员工离职面谈表</el-button
+                        >员工离职面谈申请</el-button
                     >
-                    <!-- 员工离职面谈表 -->
+                    <!-- 员工离职面谈申请 -->
                     <el-dialog
                         v-model="dialogexitVisible"
-                        title="员工离职面谈表"
+                        title="员工离职面谈申请"
                         width="1000px"
                     >
                         <iframe
                             src="http://localhost:8080/EmployeeturnoverApply"
                             width="950px"
                             height="1200px"
+                            frameborder="0"
+                        ></iframe>
+                    </el-dialog>
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="日常用品采购申请" name="8">
+                <div style="text-align: left; margin-left: 50px">
+                    <el-icon>
+                        <edit />
+                    </el-icon>
+                    <el-button type="text" @click="dialogProcurementVisible = true"
+                        >日常用品采购申请</el-button
+                    >
+                    <!-- 日常用品采购申请表单 -->
+                    <el-dialog
+                        title="日常用品采购申请"
+                        v-model="dialogProcurementVisible"
+                        width="1000px"
+                    >
+                        <iframe
+                            src="http://localhost:8080/procurement"
+                            width="950px"
+                            height="380px"
+                            frameborder="0"
+                        ></iframe>
+                    </el-dialog>
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="接待申请" name="9">
+                <div style="text-align: left; margin-left: 50px">
+                    <el-icon>
+                        <edit />
+                    </el-icon>
+                    <el-button type="text" @click="dialogReceptionVisible = true"
+                        >接待申请</el-button
+                    >
+                    <!-- 接待申请表单 -->
+                    <el-dialog
+                        title="接待申请"
+                        v-model="dialogReceptionVisible"
+                        width="1000px"
+                    >
+                        <iframe
+                            src="http://localhost:8080/Reception"
+                            width="950px"
+                            height="380px"
                             frameborder="0"
                         ></iframe>
                     </el-dialog>
@@ -180,6 +226,8 @@ export default {
             dialogstaffVisible: false, //人力资源表单
             dialogTransferVisible: false, //离职交接表单
             dialogexitVisible: false, //员工离职面谈表单
+            dialogProcurementVisible:false,//日常采购表单
+            dialogReceptionVisible:false,//接待申请表单
         };
     },
     mounted() {},

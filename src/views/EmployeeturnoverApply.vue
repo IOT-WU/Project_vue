@@ -130,7 +130,7 @@
                         离职日期
                     </td>
                     <td width="225">
-                        <input type="text" v-model="exit.Exit_LeaveData" />
+                        <input type="date" v-model="exit.Exit_LeaveData" />
                     </td>
                 </tr>
                 <tr>
@@ -142,7 +142,7 @@
                         劳动合同终止类型
                     </td>
                     <td width="225" colspan="3">
-                        <el-checkbox-group v-model="exit.Exit_TermType">
+                        <el-checkbox-group v-model="TermType">
                             <el-checkbox label="资源辞职" name="type"></el-checkbox>
                             <el-checkbox label="非资源辞职" name="type"></el-checkbox>
                         </el-checkbox-group>
@@ -157,7 +157,7 @@
                         劳动合同终止原因
                     </td>
                     <td width="225" colspan="3">
-                        <el-checkbox-group v-model="exit.Exit_TermCause">
+                        <el-checkbox-group v-model="TermCause">
                             <el-checkbox label="更好的工作机会" name="type"></el-checkbox>
                             <el-checkbox label="工作负荷过大" name="type"></el-checkbox>
                             <el-checkbox label="不满意工作" name="type"></el-checkbox>
@@ -223,7 +223,7 @@
                         薪资和福利
                     </td>
                     <td width="225" >
-                        <el-checkbox-group v-model="exit.Exit_SalaryAndBenefits">
+                        <el-checkbox-group v-model="SalaryAndBenefits">
                             <el-checkbox label="优秀" name="type"></el-checkbox>
                             <el-checkbox label="良好" name="type"></el-checkbox>
                             <el-checkbox label="一般" name="type"></el-checkbox>
@@ -251,7 +251,7 @@
                         培训发展
                     </td>
                     <td width="225">
-                        <el-checkbox-group v-model="exit.Exit_TrainingAndDevelopment">
+                        <el-checkbox-group v-model="TrainingAndDevelopment">
                             <el-checkbox label="优秀" name="type"></el-checkbox>
                             <el-checkbox label="良好" name="type"></el-checkbox>
                             <el-checkbox label="一般" name="type"></el-checkbox>
@@ -279,7 +279,7 @@
                         提升前景
                     </td>
                     <td width="225">
-                        <el-checkbox-group v-model="exit.Exit_PromotionProspects">
+                        <el-checkbox-group v-model="PromotionProspects">
                             <el-checkbox label="优秀" name="type"></el-checkbox>
                             <el-checkbox label="良好" name="type"></el-checkbox>
                             <el-checkbox label="一般" name="type"></el-checkbox>
@@ -307,7 +307,7 @@
                         公司管理
                     </td>
                     <td width="225">
-                        <el-checkbox-group v-model="exit.Exit_CompanyManagement">
+                        <el-checkbox-group v-model="CompanyManagement">
                             <el-checkbox label="优秀" name="type"></el-checkbox>
                             <el-checkbox label="良好" name="type"></el-checkbox>
                             <el-checkbox label="一般" name="type"></el-checkbox>
@@ -335,7 +335,7 @@
                         奖励和认可
                     </td>
                     <td width="225">
-                        <el-checkbox-group v-model="exit.Exit_AwardsAndRecognition">
+                        <el-checkbox-group v-model="AwardsAndRecognition">
                             <el-checkbox label="优秀" name="type"></el-checkbox>
                             <el-checkbox label="良好" name="type"></el-checkbox>
                             <el-checkbox label="一般" name="type"></el-checkbox>
@@ -363,7 +363,7 @@
                         沟通渠道
                     </td>
                     <td width="225">
-                        <el-checkbox-group v-model="exit.Exit_CommunicationChannels">
+                        <el-checkbox-group v-model="CommunicationChannels">
                             <el-checkbox label="优秀" name="type"></el-checkbox>
                             <el-checkbox label="良好" name="type"></el-checkbox>
                             <el-checkbox label="一般" name="type"></el-checkbox>
@@ -391,7 +391,7 @@
                         工作满意度
                     </td>
                     <td width="225">
-                        <el-checkbox-group v-model="exit.Exit_JobSatisfaction">
+                        <el-checkbox-group v-model="JobSatisfaction">
                             <el-checkbox label="优秀" name="type"></el-checkbox>
                             <el-checkbox label="良好" name="type"></el-checkbox>
                             <el-checkbox label="一般" name="type"></el-checkbox>
@@ -419,7 +419,7 @@
                         员工和经理沟通
                     </td>
                     <td width="225">
-                        <el-checkbox-group v-model="exit.Exit_CommunicationWithManager">
+                        <el-checkbox-group v-model="CommunicationWithManager">
                             <el-checkbox label="优秀" name="type"></el-checkbox>
                             <el-checkbox label="良好" name="type"></el-checkbox>
                             <el-checkbox label="一般" name="type"></el-checkbox>
@@ -480,7 +480,17 @@
         data() {
             return {
                 baseUrl: "http://localhost:7438/api/",
-                //人力资源数据
+                //员工离职面谈
+                TermType:[],
+                TermCause:[],
+                SalaryAndBenefits:[],
+                TrainingAndDevelopment:[],
+                PromotionProspects:[],
+                CompanyManagement:[],
+                AwardsAndRecognition:[],
+                CommunicationChannels:[],
+                JobSatisfaction:[],
+                CommunicationWithManager:[],
                 exit: {
                     exit_lister:"",
                     exit_Demt:"",
@@ -515,6 +525,16 @@
             },
             //离职面谈添加
             AddexitApply() {
+                this.exit.exit_TermCause = this.TermType.toString();
+                this.exit.exit_TermCause = this.TermCause.toString();
+                this.exit.exit_SalaryAndBenefits = this.SalaryAndBenefits.toString();
+                this.exit.exit_TrainingAndDevelopment = this.TrainingAndDevelopment.toString();
+                this.exit.exit_PromotionProspects = this.PromotionProspects.toString();
+                this.exit.exit_CompanyManagement = this.CompanyManagement.toString();
+                this.exit.exit_AwardsAndRecognition = this.AwardsAndRecognition.toString();
+                this.exit.exit_CommunicationChannels = this.CommunicationChannels.toString();
+                this.exit.exit_JobSatisfaction = this.JobSatisfaction.toString();
+                this.exit.exit_CommunicationWithManager = this.CommunicationWithManager.toString();
                 this.$axios({url:this.baseUrl + "GetExitInterviewadd",method:"post",data:this.exit}).then((res)=>{
                     if(res.data>0){
                         alert("提交成功");

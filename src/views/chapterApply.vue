@@ -173,16 +173,16 @@
                     chaptertext: "",
                 },
                 Chapter: {
-                    chapter_applicant: "",
-                    chapter_department: "",
-                    chapter_date: "",
-                    chapter_sealname: "",
-                    chapter_Checkedout: "",
-                    chapter_Accompanying: "",
-                    chapter_returndate: "",
-                    chapter_address: "",
-                    chapter_content: "",
-                    chapter_note: "",
+                    Chapter_applicant: "",
+                    Chapter_department: "",
+                    Chapter_date: "",
+                    Chapter_sealname: "",
+                    Chapter_Checkedout: "",
+                    Chapter_Accompanying: "",
+                    Chapter_returndate: "",
+                    Chapter_address: "",
+                    Chapter_content: "",
+                    Chapter_note: "",
                 },
             };
         },
@@ -193,6 +193,7 @@
                 this.dialogChapterVisible = true;
             },
             Addannual() {
+                console.log(this.Chapter);
                 this.bpmChapter.chaptertext=JSON.stringify(this.Chapter);
                 this.$axios({url:this.baseUrl+"startChaptertion",method:"post",data:this.bpmChapter}).then((res)=>{
                     if(res.data == ""){
