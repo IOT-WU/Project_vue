@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import About from '../views/About.vue'
 import Menu from '../views/Menu.vue'//菜单
 import Login from '../views/Login.vue'//登录
 import LeaveApply from '../views/LeaveApply.vue'//请假申请
@@ -25,6 +26,8 @@ import MyApplication from '../views/MyApplication.vue'//我的申请
 import AssetsaddApply from '../views/AssetsaddApply.vue'  //资产添加页面
 import AssetsApply from '../views/AssetsApply.vue'//资产申请页面
 import Announcementmanagement from '../views/Announcementmanagement.vue'//公告管理页面
+import Maintenancemanagement from '../views/Maintenancemanagement.vue'//维护管理页面
+import MeetingnewApply from '../views/MeetingnewApply.vue'//会议新增页面
 //******
 
 import chapterApply from '../views/chapterApply.vue'//用章申请
@@ -39,7 +42,7 @@ import Reception from '../views/Reception.vue'//接待申请
 import ReservationMeetingRoom from '../views/ReservationMeetingRoom.vue'//会议室预定
 import ReservationProcurement from '../views/ReservationProcurement.vue'//日常用品管理表单(以列表的形式展示)
 import Procurement from '../views/Procurement.vue'//日常用品采购清单
-import Maintenancemanagement from '../views/Maintenancemanagement.vue'//维护管理页面
+
 
 import Fixedassets from '../views/Fixedassets.vue'//固定资产
 const routes = [
@@ -47,6 +50,36 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/About',
+        name: 'About',
+        component: About
+    },
+    {
+        path: '/ReservationProcurement',
+        name: 'ReservationProcurement',
+        component: ReservationProcurement
+    },
+    {
+        path: '/Procurement',
+        name: 'Procurement',
+        component: Procurement
+    },
+    {
+        path: '/Reception',
+        name: 'Reception',
+        component: Reception
+    },
+    {
+        path: '/MeetingRoomNew',
+        name: 'MeetingRoomNew',
+        component: MeetingRoomNew
+    },
+    {
+        path: '/ReservationMeetingRoom',
+        name: 'ReservationMeetingRoom',
+        component: ReservationMeetingRoom
     },
     {
         path: '/LeaveApply',
@@ -163,16 +196,6 @@ const routes = [
         component: ReservationMeetingRoom
     },
     {
-        path: '/ReservationProcurement',
-        name: 'ReservationProcurement',
-        component: ReservationProcurement
-    },
-    {
-        path: '/Procurement',
-        name: 'Procurement',
-        component: Procurement
-    },
-    {
         path: '/Menu',
         name: 'Menu',
         component: Menu,
@@ -266,6 +289,12 @@ const routes = [
                 path: '/Maintenancemanagement',
                 name: 'Maintenancemanagement',
                 component: Maintenancemanagement
+            },
+            {
+                //会议新增
+                path: '/MeetingnewApply',
+                name: 'MeetingnewApply',
+                component: MeetingnewApply
             },
         ]
     },
