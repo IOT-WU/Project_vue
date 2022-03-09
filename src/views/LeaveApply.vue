@@ -204,7 +204,7 @@ export default {
     },
     created() {
         this.leaveform = {
-            leave_Proposer: "",
+            leave_Proposer: window.sessionStorage["account"],
             leave_Demo: "",
             leave_Time: "",
             leave_LeaveType: "",
@@ -216,12 +216,21 @@ export default {
             leave_Remark: "",
         };
         this.GetLeaveType();
-        if (window.sessionStorage["taskId"] != "") {
-            this.findLeave(window.sessionStorage["taskId"]);
-            window.sessionStorage.removeItem("taskId");
-        }
+        this.init();
+        //监听storage是否发生改变
+        window.addEventListener("storage", (e) => {
+            console.log("别的浏览器页签storage发生变化啦:", e);
+            this.init();
+        });
     },
     methods: {
+        //判断是否需要反填
+        init() {
+            if (window.sessionStorage["taskId"] != "") {
+                this.findLeave(window.sessionStorage["taskId"]);
+                window.sessionStorage.removeItem("taskId");
+            }
+        },
         //获取请假类型
         GetLeaveType() {
             this.$axios({

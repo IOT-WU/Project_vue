@@ -1,10 +1,10 @@
 <template>
-    <div style="margin-bottom: 30px; text-align: left">
+    <div style="margin-bottom: 30px; text-align: left" @fevent="GetPendingApply">
         <span style="font-size: 30px">待处理申请</span>
         <el-button style="float: right" type="succcess" @click="DownExcel"
-            >导出Excel表格</el-button
+            >导出当前页Excel表格</el-button
         >
-        <el-button style="float: right" type="succcess" @click="DownloadAllExcel"
+        <el-button style="float: right" type="succcess" @click="DownAllExcel"
             >导出所有流程数据</el-button
         >
     </div>
@@ -38,16 +38,16 @@
             />
         </div>
         <div style="margin-top: 10px">
-            <el-button size="small" type="primary" @click="Agree()" round plain
+            <el-button size="small" type="primary" @click="Agree" round plain
                 >同意</el-button
             >
-            <el-button size="small" type="danger" @click="Reject()" round plain
+            <el-button size="small" type="danger" @click="Reject" round plain
                 >拒绝</el-button
             >
             <el-button
                 size="small"
                 type="warning"
-                @click="RecedeRestart1()"
+                @click="RecedeRestart1"
                 round
                 plain
                 >驳回</el-button
@@ -173,10 +173,8 @@ export default {
             window.sessionStorage["taskId"] = row.taskID;
             this.Approve.processName = row.processName;
             this.Approve.stepId = row.stepID;
-            this.Approve.comments = this.Comments;
             this.RejectedRefused.processName = row.processName;
             this.RejectedRefused.taskId = row.taskID;
-            this.RejectedRefused.comments = this.Comments;
 
             this.$axios({
                 url: this.baseUrl + "GetUrl",
@@ -221,7 +219,7 @@ export default {
                 this.$message.warning("请输入审批建议");
                 return;
             }
-
+            this.Approve.comments = this.Comments;
             this.$axios({
                 url: this.baseUrl + "Approve",
                 method: "post",
@@ -243,6 +241,7 @@ export default {
                 this.$message.warning("请输入审批建议");
                 return;
             }
+            this.RejectedRefused.comments = this.Comments;
             this.$axios({
                 url: this.baseUrl + "Reject",
                 method: "post",
@@ -264,6 +263,7 @@ export default {
                 this.$message.warning("请输入审批建议");
                 return;
             }
+            this.RejectedRefused.comments = this.Comments;
             this.$axios({
                 url: this.baseUrl + "RecedeRestart",
                 method: "post",
