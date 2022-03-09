@@ -204,7 +204,7 @@ export default {
     },
     mounted() {
         this.leaveform = {
-            leave_Proposer: "",
+            leave_Proposer: window.sessionStorage["account"],
             leave_Demo: "",
             leave_Time: "",
             leave_LeaveType: "",
