@@ -620,6 +620,7 @@
         },
         data() {
             return {
+                baseUrl: "http://localhost:7438/api/",
                 dialogImageUrl: "",
                 dialogImgVisible: false,
                 BPMData: {
@@ -633,7 +634,7 @@
                     PlanInfoMen: "",
                 },
                 leaveform: {
-                    sacceptance_Apply: "",
+                    sacceptance_Apply: window.sessionStorage["account"],
                     sacceptance_Depart: "",
                     sacceptance_Data: "",
                     sacceptance_Card: "",
@@ -666,7 +667,41 @@
 
             };
         },
-
+        mounted() {
+            this.leaveform = {
+                sacceptance_Apply: window.sessionStorage["account"],
+                sacceptance_Depart: "",
+                sacceptance_Data: "",
+                sacceptance_Card: "",
+                sacceptance_Type: "",
+                sacceptance_Addr: "",
+                sacceptance_QCard: "",
+                sacceptance_Project: "",
+                sacceptance_Use: "",
+                sacceptance_BuDepat: "",
+            },
+                this.forms = {
+                    accdetailed_Name: "",
+                    accdetailed_XMode: "",
+                    accdetailed_Num: "",
+                    accdetailed_Price: "",
+                    accdetailed_Ammount: "",
+                    accdetailed_Unit: "",
+                    accdetailed_Procurement: "",
+                },
+                this.leform = {
+                    attachment_Shuo: "",
+                    attachment_Single: "",
+                    attachment_Num: "",
+                    attachment_People: "",
+                    attachment_Attment: "",
+                    attachment_Note: "",
+                };
+            if (window.sessionStorage["taskId"] != "") {
+                this.GetAttcen(window.sessionStorage["taskId"]);
+                window.sessionStorage.removeItem("taskId");
+            }
+        },
         methods: {
             AnnualApply() {
                 this.dialogAcceptanceVisible = true;
@@ -697,6 +732,29 @@
             //上传成功后调用
             handSuccess(response, file, fileList) {
                 alert(response);
+            },
+            GetAttcen(id) {
+                this.$axios({
+                    url: this.baseUrl + "GetSacceptance?id=" + id,
+                    method: "get",
+                }).then((res) => {
+                    console.log(res.data);
+                    this.leaveform = res.data;
+                });
+                this.$axios({
+                    url: this.baseUrl + "GitAccdetailed?id=" + id,
+                    method: "get",
+                }).then((res) => {
+                    console.log(res.data);
+                    this.forms = res.data;
+                });
+                this.$axios({
+                    url: this.baseUrl + "GetAttcent?id=" + id,
+                    method: "get",
+                }).then((res) => {
+                    console.log(res.data);
+                    this.leform = res.data;
+                });
             },
         },
     };

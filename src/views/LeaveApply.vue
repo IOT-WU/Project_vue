@@ -202,7 +202,7 @@ export default {
             //-----
         };
     },
-    mounted() {
+    created() {
         this.leaveform = {
             leave_Proposer: "",
             leave_Demo: "",

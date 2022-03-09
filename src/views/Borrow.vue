@@ -70,7 +70,8 @@
                     归还日期
                 </td>
                 <td width="225">
-                    <input type="datetime-local" @change="DateDiff" v-model="lBorrowform.borrow_EndData" placeholder="选择日期" style="
+                    <input type="datetime-local" @change="DateDiff" v-model="lBorrowform.borrow_EndData"
+                        placeholder="选择日期" style="
                             outline-color: invert;
                             outline-style: none;
                             outline-width: 0px;
@@ -185,8 +186,9 @@
     export default {
         data() {
             return {
+                baseUrl: "http://localhost:7438/api/",
                 lBorrowform: {
-                    borrow_applicant: "",
+                    borrow_applicant: window.sessionStorage["account"],
                     borrow_Department: "",
                     borrow_Data: "",
                     borrow_EndData: "",
@@ -205,21 +207,36 @@
                 },
             };
         },
-
-        methods: {
-            
-            AnnualApply() {
-            this.dialogBorrowVisible = true;
-        },
-        DateDiff() {
-            if (this.lBorrowform.borrow_EndData == "") {
-                return;
+        mounted() {
+            this.lBorrowform = {
+                borrow_applicant: window.sessionStorage["account"],
+                borrow_Department: "",
+                borrow_Data: "",
+                borrow_EndData: "",
+                borrow_Name: "",
+                borrow_Mode: "",
+                borrow_LName: 0,
+                borrow_Note: ""
+            };
+            if (window.sessionStorage["taskId"] != "") {
+                this.Gitborro(window.sessionStorage["taskId"]);
+                window.sessionStorage.removeItem("taskId");
             }
-              if(this.lBorrowform.borrow_EndData<this.lBorrowform.borrow_Data){
-                  alert('归还日期不能小于申请日期');
-                  this.lBorrowform.borrow_EndData = "";
-                return;
-              }
+        },
+        methods: {
+
+            AnnualApply() {
+                this.dialogBorrowVisible = true;
+            },
+            DateDiff() {
+                if (this.lBorrowform.borrow_EndData == "") {
+                    return;
+                }
+                if (this.lBorrowform.borrow_EndData < this.lBorrowform.borrow_Data) {
+                    alert('归还日期不能小于申请日期');
+                    this.lBorrowform.borrow_EndData = "";
+                    return;
+                }
             },
             BorrowdAdd() {
                 this.bpmBorrow.planData = JSON.stringify(this.lBorrowform);
@@ -236,7 +253,17 @@
                         alert("提交失败");
                     }
                 })
-            }
+            },
+            //固定资产借用反填
+            Gitborro(id) {
+                this.$axios({
+                    url: this.baseUrl + "Gitborrow?id=" + id,
+                    method: "get",
+                }).then((res) => {
+                    console.log(res.data);
+                    this.lBorrowform = res.data;
+                });
+            },
         },
     };
 </script>

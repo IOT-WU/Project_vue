@@ -224,6 +224,7 @@
         },
         data() {
             return {
+                baseUrl: "http://localhost:7438/api/",
                 bpmPurchase: {
                     action: "提交",
                     bpmUser: window.sessionStorage["account"],
@@ -233,7 +234,7 @@
                     planData: "",
                 },
                 Purchaseform: {
-                    assets_Applicant: "",
+                    assets_Applicant: window.sessionStorage["account"],
                     assets_Department: "",
                     assets_Data: "",
                     assets_Order: "",
@@ -246,9 +247,26 @@
                 },
             };
         },
-        created() {
+        mounted() {
+            this.Purchaseform = {
+                assets_Applicant: window.sessionStorage["account"],
+                assets_Department: "",
+                assets_Data: "",
+                assets_Order: "",
+                assets_Name: "",
+                assets_Nodel: "",
+                assets_Configution: "",
+                assets_Not: "",
+                assets_Reason: "",
+                assets_Note: "",
+            };
+            if (window.sessionStorage["taskId"] != "") {
+                this.GetFixedass(window.sessionStorage["taskId"]);
+                window.sessionStorage.removeItem("taskId");
+            };
             // 调用获取当前日期的方法加四位随机数  赋值表单中的项目编号
-            this.Purchaseform.assets_Order = this.getProjectNum() + Math.floor(Math.random() * 10000)  // 如果是6位或者8位随机数，相应的 *1000000或者 *100000000就行了
+            this.Purchaseform.assets_Order = this.getProjectNum() + Math.floor(Math.random() * 10000);  // 如果是6位或者8位随机数，相应的 *1000000或者 *100000000就行了
+
         },
 
         methods: {
@@ -257,7 +275,7 @@
             },
             getProjectNum() {
                 const projectTime = new Date() // 当前中国标准时间
-                const Year = projectTime.getFullYear() // 获取当前年份 支持IE和火狐浏览器.
+                const Year = projectTime.getFullYear() // 获取当前年份
                 const Month = projectTime.getMonth() + 1 // 获取中国区月份
                 const Day = projectTime.getDate() // 获取几号
                 var CurrentDate = Year
@@ -289,7 +307,16 @@
                         alert("提交失败");
                     }
                 })
-            }
+            },
+            GetFixedass(id) {
+                this.$axios({
+                    url: this.baseUrl + "GetFixedasse?id=" + id,
+                    method: "get",
+                }).then((res) => {
+                    console.log(res.data);
+                    this.Purchaseform = res.data;
+                });
+            },
         },
     };
 </script>
